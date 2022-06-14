@@ -1,25 +1,24 @@
 // -------- imports -------->
+
 import axios from 'axios'
 import history from '../history'
 
-// --------------- USER ACTION TYPES --------------->
-const GET_USER = 'GET_USER'
-const REMOVE_USER = 'REMOVE_USER'
+// --------------- HUE ACTION TYPES --------------->
+const GET_HUE = 'GET_HUE'
+const REMOVE_HUE = 'REMOVE_HUE'
 
+// --------------- HUE INITIAL STATE --------------->
+const defaultHue = {}
 
-// --------------- USER INITIAL STATE --------------->
-const defaultUser = {}
+// --------------- HUE ACTION CREATORS --------------->
+const getHue = hue => ({type: GET_HUE, hue})
+const removeHue = () => ({type: REMOVE_HUE})
 
-
-// --------------- USER ACTION CREATORS --------------->
-const getUser = user => ({type: GET_USER, user})
-const removeUser = () => ({type: REMOVE_USER})
-
-// --------------- USER THUNK CREATORS--------------->
+// --------------- HUE THUNK CREATORS --------------->
 export const me = () => async dispatch => {
   try {
     const res = await axios.get('/auth/me')
-    dispatch(getUser(res.data || defaultUser))
+    dispatch(getHue(res.data || defaultHue))
   } catch (err) {
     console.error(err)
   }
@@ -30,11 +29,11 @@ export const auth = (email, password, method) => async dispatch => {
   try {
     res = await axios.post(`/auth/${method}`, {email, password})
   } catch (authError) {
-    return dispatch(getUser({error: authError}))
+    return dispatch(getHue({error: authError}))
   }
 
   try {
-    dispatch(getUser(res.data))
+    dispatch(getHue(res.data))
     history.push('/home')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
@@ -44,20 +43,21 @@ export const auth = (email, password, method) => async dispatch => {
 export const logout = () => async dispatch => {
   try {
     await axios.post('/auth/logout')
-    dispatch(removeUser())
+    dispatch(removeHue())
     history.push('/login')
   } catch (err) {
     console.error(err)
   }
 }
 
-// --------------- USER REDUCER --------------->
-export default function(state = defaultUser, action) {
+// --------------- HUE REDUCER --------------->
+
+export default function(state = defaultHue, action) {
   switch (action.type) {
-    case GET_USER:
-      return action.user
-    case REMOVE_USER:
-      return defaultUser
+    case GET_HUE:
+      return action.hue
+    case REMOVE_HUE:
+      return defaultHue
     default:
       return state
   }
