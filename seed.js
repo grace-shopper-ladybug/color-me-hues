@@ -10,8 +10,6 @@ emotion color range 1-10, 10 being positive, 1 negative
 18 "emotionhues"
 */
 
-// Hey there this is annoying
-
 const seededHues = [
   {
     emotionName: 'Petrichor',
@@ -20,7 +18,7 @@ const seededHues = [
       'a pleasant smell that frequently accompanies the first rain after a long period of warm, dry weather.',
     hueColorFamily: 'green',
     quantity: 10,
-    price: 20.0,
+    price: 20.0
   },
   {
     emotionName: 'Dès Vue',
@@ -28,7 +26,7 @@ const seededHues = [
     description: 'the awareness that this moment will become a memory.',
     hueColorFamily: 'red',
     quantity: 10,
-    price: 25.0,
+    price: 25.0
   },
   {
     emotionName: 'Kairosclerosis',
@@ -37,7 +35,7 @@ const seededHues = [
       "the moment you look around and realize that you're currently happy",
     hueColorFamily: 'red',
     quantity: 10,
-    price: 75.0,
+    price: 75.0
   },
   {
     emotionName: 'Vemödalen',
@@ -45,7 +43,7 @@ const seededHues = [
     description: 'the fear that originality is no longer possible',
     hueColorFamily: 'orange',
     quantity: 5,
-    price: 30.0,
+    price: 30.0
   },
   {
     emotionName: 'Harmonia',
@@ -54,7 +52,7 @@ const seededHues = [
       'an itchy sense of dread when life feels just a hint too peaceful.',
     hueColorFamily: 'purple',
     quantity: 15,
-    price: 20.0,
+    price: 20.0
   },
   {
     emotionName: 'Liberosis',
@@ -63,7 +61,7 @@ const seededHues = [
       'the desire to care less about things; to figure out a way to relax your grip on your life.',
     hueColorFamily: 'yellow',
     quantity: 15,
-    price: 35.0,
+    price: 35.0
   },
   {
     emotionName: 'Nikhedonia',
@@ -72,7 +70,7 @@ const seededHues = [
       'the feeling of excitement or elation that comes from anticipating success.',
     hueColorFamily: 'green',
     quantity: 20,
-    price: 50.0,
+    price: 50.0
   },
   {
     emotionName: 'Euneirophrenia',
@@ -81,7 +79,7 @@ const seededHues = [
       'the feeling of contentment that comes from waking up from a pleasant dream.',
     hueColorFamily: 'red',
     quantity: 30,
-    price: 30.0,
+    price: 30.0
   },
   {
     emotionName: 'Dolce far niente',
@@ -89,7 +87,7 @@ const seededHues = [
     description: 'the pleasure of doing nothing.',
     hueColorFamily: 'red',
     quantity: 25,
-    price: 25.0,
+    price: 25.0
   },
   {
     emotionName: 'Ambedo',
@@ -97,7 +95,7 @@ const seededHues = [
     description: 'a momentary trance of emotional clarity',
     hueColorFamily: 'yellow',
     quantity: 35,
-    price: 75.0,
+    price: 75.0
   },
   {
     emotionName: 'Suente',
@@ -106,7 +104,7 @@ const seededHues = [
       'the state of being so familiar with someone that you can be in a room with them without thinking, without holding anything back, or without having to say a word.',
     hueColorFamily: 'green',
     quantity: 15,
-    price: 20.0,
+    price: 20.0
   },
   {
     emotionName: 'Amoransia',
@@ -115,7 +113,7 @@ const seededHues = [
       'the melodramatic thrill of unrequited love; the longing for someone you can never have.',
     hueColorFamily: 'red',
     quantity: 20,
-    price: 75.0,
+    price: 75.0
   },
   {
     emotionName: 'Hubilance',
@@ -124,7 +122,7 @@ const seededHues = [
       'the quiet poignance of your own responsibility for someone, with a mix of prise, fear, love and humility—much like feeling a baby fall asleep on your chest or driving at night surrounded by loved ones fast asleep in the car with you.',
     hueColorFamily: 'purple',
     quantity: 5,
-    price: 100.0,
+    price: 100.0
   },
   {
     emotionName: 'Ledsome',
@@ -133,7 +131,7 @@ const seededHues = [
       'feeling lonely in a crowd; drifting along in a sea of anonymous faces but unable to communicate with or confide in any of them.',
     hueColorFamily: 'blue',
     quantity: 30,
-    price: 25.0,
+    price: 25.0
   },
   {
     emotionName: 'Etterath',
@@ -142,7 +140,7 @@ const seededHues = [
       'the feeling of complete emptiness after a long and arduous process is complete.',
     hueColorFamily: 'yellow',
     quantity: 35,
-    price: 50.0,
+    price: 50.0
   },
   {
     emotionName: 'Galagog',
@@ -151,7 +149,7 @@ const seededHues = [
       'the state of being simultaneously entranced and unsettled by the vastness of the cosmos, which makes your deepest concerns feel laughably quaint.',
     hueColorFamily: 'yellow',
     quantity: 20,
-    price: 50.0,
+    price: 50.0
   },
   {
     emotionName: 'Whipgraft Delusion',
@@ -160,7 +158,7 @@ const seededHues = [
       "the phenomenon in which you catch your reflection in the mirror and get the sense that you're ppeering into the eyes of a stranger.",
     hueColorFamily: 'green',
     quantity: 25,
-    price: 75.0,
+    price: 75.0
   },
   {
     emotionName: 'Apolytus',
@@ -169,6 +167,6 @@ const seededHues = [
       'the moment you realize you are changing as a person, finally outgrowing your old problems.',
     hueColorFamily: 'red',
     quantity: 25,
-    price: 100,
-  },
-];
+    price: 100
+  }
+]
