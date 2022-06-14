@@ -8,7 +8,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     {/* This vvvvv is the left section in the navbar */}
     <div className="container-fluid">
-      <a className="navbar-brand" href="#">
+      <a className="navbar-brand" href="/">
         Something You Could Hues
       </a>
       {/* prob replace that ^^^^ with an icon or logo of some sort */}
