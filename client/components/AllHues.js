@@ -1,13 +1,22 @@
+/*
+WHAT IS STILL NEEDED:
+
+• Delete button
+• Form to create new emotionHue (if needed on this page)
+• LASTLY, solidified color images for the emotionHues
+*/
+
+
 // -------- imports -------->
 
 import React from "react";
 import { connect } from 'react-redux';
-import {fetchHues} from ""
+import {getHues} from  "../store/hues"
 
 // --------------- AllHues component --------------->
 export class AllHues extends React.Component {
 componentDidMount() {
-  this.props.getHues()
+  this.props.gotHues()
 }
 
   // -------- render -------->
@@ -16,18 +25,23 @@ componentDidMount() {
       <div>
         <h2>All Hues</h2>
         <main>
-          {/* iterate through all colors with map */}
+          {/* iterate through all hues with map */}
           {this.props.hues.map((hue) => {
             return ( <div
               key={hue.id}>
               <Link> to={`/hues/${hue.id}`}
-              <div>
-                {hue.name}
-              </div>
+              {/* ^^ we want to have links to each indiviual hue */}
+              <p>
+                {hue.emotionName}
+                {/* displays the name of emption for the hue  */}
+              </p>
+              <img src= {hue.emotionHue}/>
+              {/* ^^ the emotionHue (the literal color) that corresponds to the emotionName
+              ** will this be an /image/---.png file in public? **
+              */}
               </Link>
             </div>)
           })}
-          {/* <div> key={} </div> */}
         </main>
       </div>
     )
@@ -48,9 +62,9 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    getHues: () => dispatch(fetchHues)
+    gotHues: () => dispatch(getHues())
   }
 }
 
 // -------- export -------->
-export default connect(mapState, mapDispatch)(AllColors)
+export default connect(mapState, mapDispatch)(AllHues)

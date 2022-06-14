@@ -4,21 +4,21 @@ import axios from 'axios'
 import history from '../history'
 
 // --------------- HUE ACTION TYPES --------------->
-const GET_HUE = 'GET_HUE'
+const GET_HUES = 'GET_HUES'
 const REMOVE_HUE = 'REMOVE_HUE'
 
 // --------------- HUE INITIAL STATE --------------->
 const defaultHue = {}
 
 // --------------- HUE ACTION CREATORS --------------->
-const getHue = hue => ({type: GET_HUE, hue})
-const removeHue = () => ({type: REMOVE_HUE})
+export const getHues = hue => ({type: GET_HUES, hue})
+export const removeHue = () => ({type: REMOVE_HUE})
 
 // --------------- HUE THUNK CREATORS --------------->
 export const me = () => async dispatch => {
   try {
     const res = await axios.get('/auth/me')
-    dispatch(getHue(res.data || defaultHue))
+    dispatch(getHues(res.data || defaultHue))
   } catch (err) {
     console.error(err)
   }
@@ -29,11 +29,11 @@ export const auth = (email, password, method) => async dispatch => {
   try {
     res = await axios.post(`/auth/${method}`, {email, password})
   } catch (authError) {
-    return dispatch(getHue({error: authError}))
+    return dispatch(getHues({error: authError}))
   }
 
   try {
-    dispatch(getHue(res.data))
+    dispatch(getHues(res.data))
     history.push('/home')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
@@ -54,7 +54,7 @@ export const logout = () => async dispatch => {
 
 export default function(state = defaultHue, action) {
   switch (action.type) {
-    case GET_HUE:
+    case GET_HUES:
       return action.hue
     case REMOVE_HUE:
       return defaultHue
