@@ -64,7 +64,7 @@ export const hueReducer = (state = initialState, action) => {
     case GET_HUES:
       return action.hue
     case REMOVE_HUE:
-      return initialHue
+      return initialState
     default:
       return state
   }
