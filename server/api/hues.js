@@ -7,8 +7,18 @@ module.exports = router
 router.get('/', async (req, res, next) => {
   try {
     const hues = await Hue.findAll()
-    console.log(hues)
     res.json(hues)
+  } catch (err) {
+    next(err)
+  }
+})
+
+// GET /api/hues/:id
+router.get('/:hueId', async (req, res, next) => {
+  try {
+    const hue = await Hue.findByPk(req.params.hueId)
+    // include reviews here later
+    res.json(hue)
   } catch (err) {
     next(err)
   }
