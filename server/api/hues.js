@@ -7,7 +7,8 @@ module.exports = router
 router.get('/', async (req, res, next) => {
   try {
     const hues = await Hue.findAll()
-    res.send(hues)
+    console.log(hues)
+    res.json(hues)
   } catch (err) {
     next(err)
   }
