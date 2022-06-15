@@ -23,22 +23,23 @@ export class AllHues extends React.Component {
   render() {
     return (
       <div>
-        <h2>All Hues</h2>
         <main>
           {this.props.hues.map(hue => {
             return (
-              <div key={hue.id}>
-                <Link to={`/hues/${hue.id}`}>
-                  {/* ^^ we want to have links to each indiviual hue */}
-                  <p>
-                    {hue.emotionName}
-                    {/* displays the name of emption for the hue  */}
-                  </p>
-                  <img src={hue.emotionHue} />
-                  {/* ^^ the emotionHue (the literal color) that corresponds to the emotionName
-              ** will this be an /image/---.png file in public? **
-              */}
-                </Link>
+              <div className="card" style={{width: '18rem'}} key={hue.id}>
+                <img
+                  className="card-img-top"
+                  src={hue.emotionHue}
+                  alt="Card image cap"
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{hue.emotionName}</h5>
+                  <h4 className="card-price">{hue.price}</h4>
+                  <p className="card-text">{hue.description}</p>
+                  <a href={`/hues/${hue.id}`} className="btn btn-primary">
+                    Buy
+                  </a>
+                </div>
               </div>
             )
           })}
