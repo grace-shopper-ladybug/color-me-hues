@@ -32,7 +32,7 @@ export class AllHues extends React.Component {
                     <div className="card" style={{width: '18rem'}} key={hue.id}>
                       <img
                         className="card-img-top"
-                        src={hue.emotionHue}
+                        src={hue.image}
                         alt={hue.emotionHue}
                       />
                       <div className="card-body mx-auto">
