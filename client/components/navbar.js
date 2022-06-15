@@ -9,7 +9,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
     {/* This vvvvv is the left section in the navbar */}
     <div className="container-fluid">
       <a className="navbar-brand" href="/">
-        Something You Could Hues
+        <img src="/images/icon.png" width="50" height="50" alt="" />
       </a>
       {/* prob replace that ^^^^ with an icon or logo of some sort */}
       <button

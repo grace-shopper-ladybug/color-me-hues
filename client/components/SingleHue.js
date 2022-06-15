@@ -26,8 +26,7 @@ class SingleHue extends React.Component {
                 <div className="col-md-6">
                   <div className="images p-3">
                     <div className="text-center p-4">
-                      {' '}
-                      <img id="main-image" src={hue.image} width="250" />{' '}
+                      <img id="main-image" src={hue.image} width="250" />
                     </div>
                   </div>
                 </div>
@@ -35,32 +34,28 @@ class SingleHue extends React.Component {
                   <div className="product p-4">
                     <div className="d-flex justify-content-between align-items-end">
                       <div className="d-flex align-items-center">
-                        {' '}
                         <a href="/">
-                          <i className="bi bi-arrow-left" />{' '}
+                          <i className="bi bi-arrow-left" />
                           <span className="ml-1">Back</span>
-                        </a>{' '}
+                        </a>
                       </div>
                     </div>
                     <div className="mt-4 mb-3">
-                      {' '}
                       <span className="text-uppercase text-muted brand">
                         {hue.emotionHue}
                       </span>
                       <h5 className="text-uppercase">{hue.emotionName}</h5>
                       <div className="price d-flex flex-row align-items-center">
-                        {' '}
                         <span className="act-price">${hue.price}.00</span>
                       </div>
                     </div>
                     <p className="about">{hue.description}</p>
                     <div className="cart mt-4 align-items-center">
-                      {' '}
                       <button className="btn btn-primary text-uppercase mr-2 px-4">
                         Add to cart
-                      </button>{' '}
-                      <i className="bi bi-heart text-muted" />{' '}
-                      <i className="bi bi-share text-muted" />{' '}
+                      </button>
+                      <i className="bi bi-heart text-muted" />
+                      <i className="bi bi-share text-muted" />
                     </div>
                   </div>
                 </div>
