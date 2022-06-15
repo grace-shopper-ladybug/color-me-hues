@@ -24,25 +24,31 @@ export class AllHues extends React.Component {
     return (
       <div>
         <main>
-          {this.props.hues.map(hue => {
-            return (
-              <div className="card" style={{width: '18rem'}} key={hue.id}>
-                <img
-                  className="card-img-top"
-                  src={hue.emotionHue}
-                  alt="Card image cap"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{hue.emotionName}</h5>
-                  <h4 className="card-price">{hue.price}</h4>
-                  <p className="card-text">{hue.description}</p>
-                  <a href={`/hues/${hue.id}`} className="btn btn-primary">
-                    Buy
-                  </a>
-                </div>
+          <div className="container mx-auto" style={{width: '200px'}}>
+            <div className="row">
+              <div className="col-sm-6">
+                {this.props.hues.map(hue => {
+                  return (
+                    <div className="card" style={{width: '18rem'}} key={hue.id}>
+                      <img
+                        className="card-img-top"
+                        src={hue.emotionHue}
+                        alt={hue.emotionHue}
+                      />
+                      <div className="card-body mx-auto">
+                        <h5 className="card-title">{hue.emotionName}</h5>
+                        <h4 className="card-price">${hue.price}.00</h4>
+                        <p className="card-text">{hue.description}</p>
+                        <a href={`/hues/${hue.id}`} className="btn btn-primary">
+                          Buy
+                        </a>
+                      </div>
+                    </div>
+                  )
+                })}{' '}
               </div>
-            )
-          })}
+            </div>
+          </div>
         </main>
       </div>
     )
