@@ -6,10 +6,8 @@ import history from '../history'
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
 
-
 // --------------- USER INITIAL STATE --------------->
 const defaultUser = {}
-
 
 // --------------- USER ACTION CREATORS --------------->
 const getUser = user => ({type: GET_USER, user})
