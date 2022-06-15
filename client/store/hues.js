@@ -1,8 +1,6 @@
 // -------- imports -------->
 
 import axios from 'axios'
-import { initial } from 'lodash';
-
 
 // --------------- HUE ACTION TYPES --------------->
 
@@ -10,25 +8,24 @@ const GET_HUES = 'GET_HUES'
 const REMOVE_HUE = 'REMOVE_HUE'
 // const NEW_HUE = 'NEW_HUE'
 
-
 // ------------ initial state ------------>
 
-export const initialState = [];
+export const initialState = []
 
 //  ------------ ACTION CREATORS ------------>
 
 // the _ is so I can use the same getHues in my Thunks
-export const _getHues = (hues) => {
+export const _getHues = hues => {
   return {
     type: GET_HUES,
-    hues: hues
+    hues
   }
 }
 
-export const _removeHue = (hue)  => {
+export const _removeHue = hue => {
   return {
- type: REMOVE_HUE,
- hue: hue
+    type: REMOVE_HUE,
+    hue
   }
 }
 
@@ -43,31 +40,28 @@ export const _removeHue = (hue)  => {
 //   }
 // }
 
-
 // --------------- HUE THUNK CREATORS --------------->
 
-export const getHues = () => async(dispatch) => {
-  const { hue } = await axios.get('/api/hues/')
-  dispatch(getHues(hue))
+export const getHues = () => async dispatch => {
+  const {data: hues} = await axios.get('/api/hues')
+  dispatch(_getHues(hues))
 }
 
-export const removeHue = (hueId) => {
-  return async(dispatch) => {
-    await axios.delete(`/api/hues/${hueId}`)
-    dispatch(_removeHue(hueId))
+export const removeHue = hueId => {
+  return async dispatch => {
+    const {data: hue} = await axios.delete(`/api/hues/${hueId}`)
+    dispatch(_removeHue(hue))
   }
 }
 // --------------- HUE REDUCER --------------->
 
-export const hueReducer = (state = initialState, action) => {
+export default function(state = initialState, action) {
   switch (action.type) {
     case GET_HUES:
-      return action.hue
+      return action.hues
     case REMOVE_HUE:
-      return initialState
+      return state.filter(hue => hue.id !== action.hue.id)
     default:
       return state
   }
 }
-
-export default hueReducer;

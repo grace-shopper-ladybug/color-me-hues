@@ -6,15 +6,12 @@ WHAT IS STILL NEEDED:
 • LASTLY, solidified color images for the emotionHues
 */
 
-
 // -------- imports -------->
 
-
-import React from "react";
-import { connect } from 'react-redux';
-import {getHues} from  "../store/hues"
-import Link from 'react-router-dom/Link'
-
+import React from 'react'
+import {connect} from 'react-redux'
+import {getHues} from '../store/hues'
+import {Link} from 'react-router-dom'
 
 // --------------- AllHues component --------------->
 export class AllHues extends React.Component {
@@ -22,39 +19,25 @@ export class AllHues extends React.Component {
     this.props.getHues()
   }
 
-
   // -------- render -------->
   render() {
     return (
       <div>
         <h2>All Hues</h2>
         <main>
-
-          {/* iterate through all hues with map */}
-          {this.props.hues.map((hue) => {
-            return ( <div
-              key={hue.id}>
-              <Link> to={`/hues/${hue.id}`}
-              {/* ^^ we want to have links to each indiviual hue */}
-              <p>
-                {hue.emotionName}
-                {/* displays the name of emption for the hue  */}
-              </p>
-              <img src= {hue.emotionHue}/>
-              {/* ^^ the emotionHue (the literal color) that corresponds to the emotionName
-              ** will this be an /image/---.png file in public? **
-              */}
-              </Link>
-            </div>)
-
-          {/* iterate through all colors with map */}
           {this.props.hues.map(hue => {
             return (
               <div key={hue.id}>
-                <Link>
-                  {' '}
-                  to={`/hues/${hue.id}`}
-                  <div>{hue.name}</div>
+                <Link to={`/hues/${hue.id}`}>
+                  {/* ^^ we want to have links to each indiviual hue */}
+                  <p>
+                    {hue.emotionName}
+                    {/* displays the name of emption for the hue  */}
+                  </p>
+                  <img src={hue.emotionHue} />
+                  {/* ^^ the emotionHue (the literal color) that corresponds to the emotionName
+              ** will this be an /image/---.png file in public? **
+              */}
                 </Link>
               </div>
             )
@@ -69,7 +52,7 @@ export class AllHues extends React.Component {
 
 const mapState = state => {
   return {
-    hues: state.hues //NEEDS TO BE EDITED
+    hues: state.hues
   }
 }
 
@@ -77,7 +60,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    gotHues: () => dispatch(getHues())
+    getHues: () => dispatch(getHues())
   }
 }
 
