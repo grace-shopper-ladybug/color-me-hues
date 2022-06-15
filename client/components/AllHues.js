@@ -23,25 +23,36 @@ export class AllHues extends React.Component {
   render() {
     return (
       <div>
-        <h2>All Hues</h2>
         <main>
-          {this.props.hues.map(hue => {
-            return (
-              <div key={hue.id}>
-                <Link to={`/hues/${hue.id}`}>
-                  {/* ^^ we want to have links to each indiviual hue */}
-                  <p>
-                    {hue.emotionName}
-                    {/* displays the name of emption for the hue  */}
-                  </p>
-                  <img src={hue.emotionHue} />
-                  {/* ^^ the emotionHue (the literal color) that corresponds to the emotionName
-              ** will this be an /image/---.png file in public? **
-              */}
-                </Link>
-              </div>
-            )
-          })}
+          {/* <div className="container mx-auto" style={{width: '1800px'}}> */}
+          <div className="row row-cols-1 row-cols-md-4 g-4">
+            {this.props.hues.map(hue => {
+              return (
+                <div className="col m-3">
+                  <div
+                    className="card h-100"
+                    style={{width: '18rem', padding: '0.5rem'}}
+                    key={hue.id}
+                  >
+                    <img
+                      className="card-img-top"
+                      src={hue.image}
+                      alt={hue.emotionHue}
+                    />
+                    <div className="card-body mx-auto">
+                      <h5 className="card-title">{hue.emotionName}</h5>
+                      <h6 className="card-price">${hue.price}.00</h6>
+                      <p className="card-text">{hue.description}</p>
+                      <a href={`/hues/${hue.id}`} className="btn btn-primary">
+                        Buy
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+          {/* </div> */}
         </main>
       </div>
     )

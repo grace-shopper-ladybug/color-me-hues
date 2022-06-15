@@ -41,69 +41,71 @@ const Navbar = ({handleClick, isLoggedIn}) => (
         </ul>
 
         {/* This is the right section of the navbar --- this specific section is for the search form */}
-        <form className="d-flex">
-          <input
-            className="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button className="btn btn-outline-success" type="submit">
-            Search
-          </button>
-        </form>
+        <div className="d-flex flex-row justify-content-end">
+          <form className="d-flex ">
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button className="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
 
-        {/* Depending on whether the user is logged in or not, different links will show. ie here, I have it so that when the user is logged in, they can see a dropdown menu and access their account home page, the logout button, their orders, reviews, etc */}
-        {isLoggedIn ? (
-          <div>
-            {/* The navbar will show these links after you log in */}
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                {/* We don't have a state yet, but I would hope that when we get that down we can implement this so that when users are logged in and they press the dropdown, it would greet them by the name that is on state */}
-                <li>Hi, USERNAMEHERE</li>
-                <li>
-                  <a className="dropdown-item" href="/home">
-                    Account
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Orders
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Reviews
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#" onClick={handleClick}>
-                    Logout
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </div>
-        ) : (
-          <div>
-            {/* The navbar will show these links before you log in */}
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
-          </div>
-        )}
+          {/* Depending on whether the user is logged in or not, different links will show. ie here, I have it so that when the user is logged in, they can see a dropdown menu and access their account home page, the logout button, their orders, reviews, etc */}
+          {isLoggedIn ? (
+            <div>
+              {/* The navbar will show these links after you log in */}
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Dropdown
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  {/* We don't have a state yet, but I would hope that when we get that down we can implement this so that when users are logged in and they press the dropdown, it would greet them by the name that is on state */}
+                  <li>Hi, USERNAMEHERE</li>
+                  <li>
+                    <a className="dropdown-item" href="/home">
+                      Account
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Orders
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Reviews
+                    </a>
+                  </li>
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#" onClick={handleClick}>
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </div>
+          ) : (
+            <div>
+              {/* The navbar will show these links before you log in */}
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Sign Up</Link>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   </nav>

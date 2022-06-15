@@ -11,6 +11,9 @@ const Hue = db.define('hue', {
     }
   },
   emotionHue: {
+    type: Sequelize.STRING
+  },
+  image: {
     type: Sequelize.STRING,
     defaultValue: '/images/colors.png'
   },
