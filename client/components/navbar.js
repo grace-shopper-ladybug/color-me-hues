@@ -49,7 +49,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
-                href="/"
+                href="#"
                 id="navbarDarkDropdownMenuLink"
                 role="button"
                 data-bs-toggle="dropdown"
