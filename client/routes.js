@@ -6,6 +6,7 @@ import {Login, Signup, UserHome} from './components'
 import Storefront from './components/Storefront'
 import SingleHue from './components/SingleHue'
 import {me} from './store'
+import Homepage from './components/Homepage'
 
 /**
  * COMPONENT
@@ -22,7 +23,8 @@ class Routes extends Component {
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route exact path="/" component={Storefront} />
-        <Route path="/hues/:hueId" component={SingleHue} />
+        <Route exact path="/products" component={Storefront} />
+        <Route exact path="/hues/:hueId" component={SingleHue} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         {isLoggedIn && (
