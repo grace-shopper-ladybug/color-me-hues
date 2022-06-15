@@ -49,7 +49,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
-                href="#"
+                href="/"
                 id="navbarDarkDropdownMenuLink"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -132,9 +132,9 @@ const Navbar = ({handleClick, isLoggedIn}) => (
             <Link to="/signup">Sign Up</Link>
           </div>
         )}
-        <button type="button" className="btn btn-link">
+        <a className="nav-link active" aria-current="page" href="/cart">
           <i className="bi bi-cart" style={{fontSize: '1.5rem'}} />
-        </button>
+        </a>
       </div>
     </div>
   </nav>
