@@ -39,10 +39,10 @@ export class AllHues extends React.Component {
                       src={hue.image}
                       alt={hue.emotionHue}
                     />
-                    <div className="card-body mx-auto">
+                    <div className="card-body text-center">
                       <h5 className="card-title">{hue.emotionName}</h5>
                       <h6 className="card-price">${hue.price}.00</h6>
-                      <p className="card-text">{hue.description}</p>
+                      {/* <p className="card-text">{hue.description}</p> */}
                       <a href={`/hues/${hue.id}`} className="btn btn-primary">
                         Buy
                       </a>
