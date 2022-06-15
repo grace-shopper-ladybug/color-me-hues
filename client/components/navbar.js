@@ -70,7 +70,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 {/* We don't have a state yet, but I would hope that when we get that down we can implement this so that when users are logged in and they press the dropdown, it would greet them by the name that is on state */}
-                <li>Hi, ${state.user.name}</li>
+                <li>Hi, USERNAMEHERE</li>
                 <li>
                   <a className="dropdown-item" href="/home">
                     Account

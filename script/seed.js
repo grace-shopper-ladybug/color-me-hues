@@ -12,52 +12,50 @@ async function seed() {
       userName: 'Paula',
       userID: 'thisPaula',
       admin: false,
-      email: 'fakeEmail@gmail.com',
-      password: '12345',
+      email: 'paula@gmail.com',
+      password: '12345'
     }),
     User.create({
       userName: 'Tyler',
       userID: 'TylerEats',
       admin: false,
-      email: 'fakeEmail@gmail.com',
-      password: '12345',
+      email: 'tyler@gmail.com',
+      password: '12345'
     }),
-    User.create(
-      {
-        userName: 'Noelle',
-        userID: 'yourCEO',
-        admin: true,
-        email: 'fakeEmail@gmail.com',
-        password: '12345',
-      }
-    ),
+    User.create({
+      userName: 'Noelle',
+      userID: 'yourCEO',
+      admin: true,
+      email: 'noelle@gmail.com',
+      password: '12345'
+    }),
     User.create({
       userName: 'Kristin',
       userID: 'lavendarPlease',
       admin: true,
-      email: 'fakeEmail@gmail.com',
-      password: '12345',
+      email: 'kristin@gmail.com',
+      password: '12345'
     }),
-    User.create( {
+    User.create({
       userName: 'Cindy',
       userID: 'outOfYourLeague',
       admin: true,
-      email: 'fakeEmail@gmail.com',
-      password: '12345',
+      email: 'cindy@gmail.com',
+      password: '12345'
     }),
     User.create({
       userName: 'Ji',
       userID: 'alwaysChomping',
       admin: true,
-      email: 'fakeEmail@gmail.com',
-      password: '12345',
+      email: 'ji@gmail.com',
+      password: '12345'
     }),
     User.create({
       userName: 'Rusty',
       userID: 'Leader',
       admin: false,
-      email: 'fakeEmail@gmail.com',
-      password: '12345',
+      email: 'rusty@gmail.com',
+      password: '12345'
     })
   ])
 
