@@ -24,7 +24,10 @@ const Navbar = ({handleClick, isLoggedIn}) => (
         <span className="navbar-toggler-icon" />
       </button>
 
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <div
+        className="d-flex collapse navbar-collapse"
+        id="navbarSupportedContent"
+      >
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
             {/* This is the HOME button in the navbar */}
@@ -41,18 +44,37 @@ const Navbar = ({handleClick, isLoggedIn}) => (
         </ul>
 
         {/* This is the right section of the navbar --- this specific section is for the search form */}
-        <div className="d-flex flex-row justify-content-end">
-          <form className="d-flex ">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
+        <div className="row">
+          <div className="dropdown">
+            <a
+              className="btn btn-secondary dropdown-toggle"
+              href="#"
+              role="button"
+              id="dropdownMenuLink"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Filter By
+            </a>
+
+            <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li>
+                <a className="dropdown-item" href="#">
+                  Action
+                </a>
+              </li>
+              <li>
+                <a className="dropdown-item" href="#">
+                  Another action
+                </a>
+              </li>
+              <li>
+                <a className="dropdown-item" href="#">
+                  Something else here
+                </a>
+              </li>
+            </ul>
+          </div>
 
           {/* Depending on whether the user is logged in or not, different links will show. ie here, I have it so that when the user is logged in, they can see a dropdown menu and access their account home page, the logout button, their orders, reviews, etc */}
           {isLoggedIn ? (
@@ -105,6 +127,9 @@ const Navbar = ({handleClick, isLoggedIn}) => (
               <Link to="/signup">Sign Up</Link>
             </div>
           )}
+          <button>
+            <i className="bi bi-cart">cart</i>
+          </button>
         </div>
       </div>
     </div>
