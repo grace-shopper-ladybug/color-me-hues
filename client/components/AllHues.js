@@ -28,7 +28,7 @@ export class AllHues extends React.Component {
           <div className="row row-cols-1 row-cols-md-4 g-4">
             {this.props.hues.map(hue => {
               return (
-                <div className="col m-3">
+                <div className="col m-3" key={hue.id}>
                   <div
                     className="card h-100"
                     style={{width: '18rem', padding: '0.5rem'}}
