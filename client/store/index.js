@@ -2,12 +2,14 @@ import {createStore, combineReducers, applyMiddleware} from 'redux'
 import {createLogger} from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
-import userReducer from './user'
-import huesReducer from './hues'
+import singleUserReducer from './user'
+import huesReducer from './allHues'
+import singleHueReducer from './singleHue'
 
 const reducer = combineReducers({
-  user: userReducer,
-  hues: huesReducer
+  user: singleUserReducer,
+  hues: huesReducer,
+  hue: singleHueReducer
 })
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))

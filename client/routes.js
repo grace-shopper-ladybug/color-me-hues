@@ -2,7 +2,9 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {Login, Signup, UserHome, Storefront} from './components'
+import {Login, Signup, UserHome} from './components'
+import Storefront from './components/Storefront'
+import SingleHue from './components/SingleHue'
 import {me} from './store'
 
 /**
@@ -20,6 +22,7 @@ class Routes extends Component {
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route exact path="/" component={Storefront} />
+        <Route path="/hues/:hueId" component={SingleHue} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         {isLoggedIn && (

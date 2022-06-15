@@ -10,7 +10,7 @@ WHAT IS STILL NEEDED:
 
 import React from 'react'
 import {connect} from 'react-redux'
-import {getHues} from '../store/hues'
+import {getHues} from '../store/allHues'
 import {Link} from 'react-router-dom'
 
 // --------------- AllHues component --------------->
