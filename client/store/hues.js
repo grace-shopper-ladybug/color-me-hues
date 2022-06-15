@@ -55,7 +55,7 @@ export const removeHue = hueId => {
 }
 // --------------- HUE REDUCER --------------->
 
-export const hueReducer = (state = initialState, action) => {
+export default function(state = initialState, action) {
   switch (action.type) {
     case GET_HUES:
       return action.hues
@@ -65,5 +65,3 @@ export const hueReducer = (state = initialState, action) => {
       return state
   }
 }
-
-export default hueReducer
