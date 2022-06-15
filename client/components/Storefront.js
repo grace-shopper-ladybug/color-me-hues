@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import AllHues from './AllHues'
 import Navbar from './Navbar'
 
 class Storefront extends React.Component {
@@ -9,7 +10,7 @@ class Storefront extends React.Component {
       <div>
         <h1> hi this is the storefront yay</h1>
         {/* discuss what storefront should look like */}
-        {/* AllHues component here when done */}
+        <AllHues />
       </div>
     )
   }
