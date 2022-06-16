@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {getHues} from '../store/allHues'
+import {getHues, deleteHue} from '../store/allHues'
 import CreateHue from './CreateHue'
 import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
@@ -43,17 +43,22 @@ class Admin extends React.Component {
           <tbody>
             {this.props.hues.map(hue => {
               return (
-                <tr>
+                <tr key={hue.id}>
                   <td>{hue.id}</td>
                   <td>{hue.emotionName}</td>
                   <td>{hue.description}</td>
                   <td>{hue.price}</td>
                   <td>{hue.quantity}</td>
                   <td>
-                    <Button>Edit</Button>
+                    <Button type="button">Edit</Button>
                   </td>
                   <td>
-                    <Button>Delete</Button>
+                    <Button
+                      type="button"
+                      onClick={() => this.props.deleteHue(hue.id)}
+                    >
+                      Delete
+                    </Button>
                   </td>
                 </tr>
               )
@@ -73,7 +78,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getHues: () => dispatch(getHues())
+    getHues: () => dispatch(getHues()),
+    deleteHue: hue => dispatch(deleteHue(hue))
   }
 }
 

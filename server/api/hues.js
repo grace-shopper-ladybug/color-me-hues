@@ -14,9 +14,9 @@ router.get('/', async (req, res, next) => {
 })
 
 // GET /api/hues/:id
-router.get('/:hueId', async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
   try {
-    const hue = await Hue.findByPk(req.params.hueId)
+    const hue = await Hue.findByPk(req.params.id)
     // include reviews here later
     res.json(hue)
   } catch (err) {
@@ -35,5 +35,14 @@ router.post('/', async (req, res, next) => {
 })
 
 // DELETE /api/hues/:id
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const hue = await Hue.findByPk(req.params.id)
+    await hue.destroy()
+    res.json(hue)
+  } catch (err) {
+    next(err)
+  }
+})
 
 // PUT /api/hues/:id
