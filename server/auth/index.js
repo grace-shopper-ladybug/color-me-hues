@@ -26,6 +26,8 @@ router.post('/signup', async (req, res, next) => {
 
     // ---------- Below allows users to input their own data for all fields -------
     // const user = await User.create(req.body)
+
+    // ---------- NOW NEW USERS CAN ONLY INSERT BELOW INFO -----------------------
     const user = await User.create({email, password, userName, userID})
     req.login(user, err => (err ? next(err) : res.json(user)))
   } catch (err) {
