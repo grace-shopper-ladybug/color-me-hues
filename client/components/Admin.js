@@ -16,11 +16,10 @@ class Admin extends React.Component {
         <h1>Admins Only</h1>
         <CreateHue />
         <p>
-          Here, I'll render a table of all products with Bootstrap. Next to each
-          row of products, I'll have an edit and delete button. The edit button
-          should take you to a separate page where you can fill out fields to
-          update individual product listings. The delete button could optionally
-          show a confirmation message before deleting the product.
+          The edit button should take you to a separate page where you can fill
+          out fields to update individual product listings. The delete button
+          could optionally show a confirmation message before deleting the
+          product.
         </p>
         <p>
           All relevant POST, PUT, and DELETE routes, along with this /admin page
@@ -30,7 +29,6 @@ class Admin extends React.Component {
         </p>
 
         <Table striped bordered hover>
-          {' '}
           <thead>
             <tr>
               <th>#</th>
