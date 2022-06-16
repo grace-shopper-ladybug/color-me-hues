@@ -12,6 +12,10 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {getHues} from '../store/allHues'
 import {Link} from 'react-router-dom'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import Row from 'react-bootstrap/Row'
+import Container from 'react-bootstrap/Container'
 
 // --------------- AllHues component --------------->
 export class AllHues extends React.Component {
@@ -22,38 +26,35 @@ export class AllHues extends React.Component {
   // -------- render -------->
   render() {
     return (
-      <div>
-        <main>
-          <div className="row row-cols-1 row-cols-md-4 g-4">
+      <div className="mt-6">
+        <Container fluid className="justify-content-center">
+          <Row xs={1} md={3} className="gx-4 ">
             {this.props.hues.map(hue => {
               return (
-                <div className="col m-3" key={hue.id}>
-                  <div
-                    className="card h-100"
-                    style={{
-                      width: '18rem',
-                      borderRadius: '5%'
-                    }}
-                    key={hue.id}
-                  >
-                    <img
-                      className="card-img h-75"
-                      src={hue.image}
-                      alt={hue.emotionHue}
-                    />
-                    <div className="card-body text-center">
-                      <h5 className="card-title">{hue.emotionName}</h5>
-                      <h6 className="card-price">${hue.price}.00</h6>
-                      <Link to={`/hues/${hue.id}`} className="btn btn-primary">
-                        Buy
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+                <Card
+                  className="m-3"
+                  style={{width: '15rem', borderRadius: '5%'}}
+                  key={hue.id}
+                >
+                  <Card.Img
+                    className="mt-2"
+                    style={{borderRadius: '5%'}}
+                    variant="top"
+                    src={hue.image}
+                    alt={hue.emotionHue}
+                  />
+                  <Card.Body className="text-center">
+                    <Card.Title>{hue.emotionName}</Card.Title>
+                    <Card.Text>${hue.price}.00</Card.Text>
+                    <Link to={`/hues/${hue.id}`}>
+                      <Button variant="outline-secondary">Buy</Button>
+                    </Link>
+                  </Card.Body>
+                </Card>
               )
             })}
-          </div>
-        </main>
+          </Row>
+        </Container>
       </div>
     )
   }
