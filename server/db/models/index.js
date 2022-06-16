@@ -14,6 +14,23 @@ const Hue = require('./hue')
  * for example, we can say: const {User} = require('../db/models')
  * instead of: const User = require('../db/models/user')
  */
+
+// User
+// Hue (product)
+// Order
+
+// Cart isn't needed — Orders can have isOrder column (true/false) to handle that
+
+// Order.BelongsTo(User);
+// User.HasMany(Order);
+
+// Order.HasMany(Hue);
+// Hue.BelongsToMany(Order, { through: 'order-hues' });
+
+// For later: handling favorites and admin control
+// User.HasMany(Hue);
+// Hue.BelongsToMany(User);
+
 module.exports = {
   User,
   Hue
