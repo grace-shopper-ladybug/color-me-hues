@@ -23,7 +23,7 @@ const NavigationBar = ({handleClick, isLoggedIn}) => (
           navbarScroll
         >
           <Nav.Link href="/">All Products</Nav.Link>
-          <Nav.Link href="#action2">Some other link</Nav.Link>
+          <Nav.Link href="/admin">Admin</Nav.Link>
         </Nav>
         <Nav>
           <NavDropdown
@@ -223,7 +223,7 @@ export default connect(mapState, mapDispatch)(NavigationBar)
 /**
  * PROP TYPES
  */
-Navbar.propTypes = {
+NavigationBar.propTypes = {
   handleClick: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired
 }

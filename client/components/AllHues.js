@@ -46,7 +46,7 @@ export class AllHues extends React.Component {
                     }
                   >
                     <Card.Img
-                      className="mt-2"
+                      className="img-fluid mt-2"
                       style={{borderRadius: '5%'}}
                       variant="top"
                       src={hue.image}
