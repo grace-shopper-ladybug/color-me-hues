@@ -63,7 +63,7 @@ async function seed() {
     Hue.create({
       emotionName: 'Petrichor',
       emotionHue: '#283618',
-      image: `/images/hues/petrichor.png`,
+      image: `/images/squared/petrichor.png`,
       description:
         'a pleasant smell that frequently accompanies the first rain after a long period of warm, dry weather.',
       hueColorFamily: 'green',
@@ -73,7 +73,7 @@ async function seed() {
     Hue.create({
       emotionName: 'Dès Vue',
       emotionHue: '#aa767c',
-      image: `/images/hues/des-vue.png`,
+      image: `/images/squared/des-vue.png`,
       description: 'the awareness that this moment will become a memory.',
       hueColorFamily: 'red',
       quantity: 10,
@@ -82,7 +82,7 @@ async function seed() {
     Hue.create({
       emotionName: 'Kairosclerosis',
       emotionHue: '#a4161a',
-      image: `/images/hues/kairosclerosis.png`,
+      image: `/images/squared/kairosclerosis.png`,
       description:
         "the moment you look around and realize that you're currently happy",
       hueColorFamily: 'red',
@@ -92,7 +92,7 @@ async function seed() {
     Hue.create({
       emotionName: 'Vemödalen',
       emotionHue: '#ffcdb2',
-      image: `/images/hues/vemodalen.png`,
+      image: `/images/squared/vemodalen.png`,
       description: 'the fear that originality is no longer possible',
       hueColorFamily: 'orange',
       quantity: 5,
@@ -101,7 +101,7 @@ async function seed() {
     Hue.create({
       emotionName: 'Harmonia',
       emotionHue: '#b5838d',
-      image: `/images/hues/harmonia.png`,
+      image: `/images/squared/harmonia.png`,
       description:
         'an itchy sense of dread when life feels just a hint too peaceful.',
       hueColorFamily: 'purple',
@@ -111,7 +111,7 @@ async function seed() {
     Hue.create({
       emotionName: 'Liberosis',
       emotionHue: '#eec170',
-      image: `/images/hues/liberosis.png`,
+      image: `/images/squared/liberosis.png`,
       description:
         'the desire to care less about things; to figure out a way to relax your grip on your life.',
       hueColorFamily: 'yellow',
@@ -121,7 +121,7 @@ async function seed() {
     Hue.create({
       emotionName: 'Nikhedonia',
       emotionHue: '#87a330',
-      image: `/images/hues/nikhedonia.png`,
+      image: `/images/squared/nikhedonia.png`,
       description:
         'the feeling of excitement or elation that comes from anticipating success.',
       hueColorFamily: 'green',
@@ -131,7 +131,7 @@ async function seed() {
     Hue.create({
       emotionName: 'Euneirophrenia',
       emotionHue: '#ba6a49',
-      image: `/images/hues/euneirophrenia.png`,
+      image: `/images/squared/euneirophrenia.png`,
       description:
         'the feeling of contentment that comes from waking up from a pleasant dream.',
       hueColorFamily: 'red',
@@ -141,7 +141,7 @@ async function seed() {
     Hue.create({
       emotionName: 'Dolce far niente',
       emotionHue: '#a56336',
-      image: `/images/hues/dolce-far-niente.png`,
+      image: `/images/squared/dolce-far-niente.png`,
       description: 'the pleasure of doing nothing.',
       hueColorFamily: 'red',
       quantity: 25,
@@ -150,7 +150,7 @@ async function seed() {
     Hue.create({
       emotionName: 'Ambedo',
       emotionHue: '#ffedd8',
-      image: `/images/hues/ambedo.png`,
+      image: `/images/squared/ambedo.png`,
       description: 'a momentary trance of emotional clarity',
       hueColorFamily: 'yellow',
       quantity: 35,
@@ -159,7 +159,7 @@ async function seed() {
     Hue.create({
       emotionName: 'Suente',
       emotionHue: '#718355',
-      image: `/images/hues/suente.png`,
+      image: `/images/squared/suente.png`,
       description:
         'the state of being so familiar with someone that you can be in a room with them without thinking, without holding anything back, or without having to say a word.',
       hueColorFamily: 'green',
@@ -169,7 +169,7 @@ async function seed() {
     Hue.create({
       emotionName: 'Amoransia',
       emotionHue: '#6d3b47',
-      image: `/images/hues/amoransia.png`,
+      image: `/images/squared/amoransia.png`,
       description:
         'the melodramatic thrill of unrequited love; the longing for someone you can never have.',
       hueColorFamily: 'red',
@@ -179,7 +179,7 @@ async function seed() {
     Hue.create({
       emotionName: 'Hubilance',
       emotionHue: '#d55d92',
-      image: `/images/hues/hubilance.png`,
+      image: `/images/squared/hubilance.png`,
       description:
         'the quiet poignance of your own responsibility for someone, with a mix of prise, fear, love and humility—much like feeling a baby fall asleep on your chest or driving at night surrounded by loved ones fast asleep in the car with you.',
       hueColorFamily: 'purple',
@@ -189,7 +189,7 @@ async function seed() {
     Hue.create({
       emotionName: 'Ledsome',
       emotionHue: '#18435a',
-      image: `/images/hues/ledsome.png`,
+      image: `/images/squared/ledsome.png`,
       description:
         'feeling lonely in a crowd; drifting along in a sea of anonymous faces but unable to communicate with or confide in any of them.',
       hueColorFamily: 'blue',
@@ -199,7 +199,7 @@ async function seed() {
     Hue.create({
       emotionName: 'Etterath',
       emotionHue: '#fbb3a5',
-      image: `/images/hues/etterath.png`,
+      image: `/images/squared/etterath.png`,
       description:
         'the feeling of complete emptiness after a long and arduous process is complete.',
       hueColorFamily: 'yellow',
@@ -209,7 +209,7 @@ async function seed() {
     Hue.create({
       emotionName: 'Galagog',
       emotionHue: '#ffb200',
-      image: `/images/hues/galagog.png`,
+      image: `/images/squared/galagog.png`,
       description:
         'the state of being simultaneously entranced and unsettled by the vastness of the cosmos, which makes your deepest concerns feel laughably quaint.',
       hueColorFamily: 'yellow',
@@ -219,7 +219,7 @@ async function seed() {
     Hue.create({
       emotionName: 'Whipgraft Delusion',
       emotionHue: '#3891a6',
-      image: `/images/hues/whipgraft-delusion.png`,
+      image: `/images/squared/whipgraft-delusion.png`,
       description:
         "the phenomenon in which you catch your reflection in the mirror and get the sense that you're ppeering into the eyes of a stranger.",
       hueColorFamily: 'green',
@@ -229,7 +229,7 @@ async function seed() {
     Hue.create({
       emotionName: 'Apolytus',
       emotionHue: '#c05c35',
-      image: `/images/hues/apolytus.png`,
+      image: `/images/squared/apolytus.png`,
       description:
         'the moment you realize you are changing as a person, finally outgrowing your old problems.',
       hueColorFamily: 'red',

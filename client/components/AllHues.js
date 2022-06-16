@@ -12,6 +12,9 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {getHues} from '../store/allHues'
 import {Link} from 'react-router-dom'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import Row from 'react-bootstrap/Row'
 
 // --------------- AllHues component --------------->
 export class AllHues extends React.Component {
@@ -24,35 +27,47 @@ export class AllHues extends React.Component {
     return (
       <div>
         <main>
-          <div className="row row-cols-1 row-cols-md-4 g-4">
+          <Row xs={1} md={2} className="g-4">
             {this.props.hues.map(hue => {
               return (
-                <div className="col m-3" key={hue.id}>
-                  <div
-                    className="card h-100"
-                    style={{
-                      width: '18rem',
-                      borderRadius: '5%'
-                    }}
-                    key={hue.id}
-                  >
-                    <img
-                      className="card-img h-75"
-                      src={hue.image}
-                      alt={hue.emotionHue}
-                    />
-                    <div className="card-body text-center">
-                      <h5 className="card-title">{hue.emotionName}</h5>
-                      <h6 className="card-price">${hue.price}.00</h6>
-                      <Link to={`/hues/${hue.id}`} className="btn btn-primary">
-                        Buy
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+                <Card style={{width: '18rem'}} key={hue.id}>
+                  <Card.Img
+                    variant="top"
+                    src={hue.image}
+                    alt={hue.emotionHue}
+                  />
+                  <Card.Body>
+                    <Card.Title>{hue.emotionName}</Card.Title>
+                    <Card.Text>${hue.price}.00</Card.Text>
+                    <Button variant="primary">Buy</Button>
+                  </Card.Body>
+                </Card>
+                // <div className="col m-3" key={hue.id}>
+                //   <div
+                //     className="card h-100"
+                //     style={{
+                //       width: '18rem',
+                //       borderRadius: '5%'
+                //     }}
+                //     key={hue.id}
+                //   >
+                //     <img
+                //       className="card-img h-75"
+                //       src={hue.image}
+                //       alt={hue.emotionHue}
+                //     />
+                //     <div className="card-body text-center">
+                //       <h5 className="card-title">{hue.emotionName}</h5>
+                //       <h6 className="card-price">${hue.price}.00</h6>
+                //       <Link to={`/hues/${hue.id}`} className="btn btn-primary">
+                //         Buy
+                //       </Link>
+                //     </div>
+                //   </div>
+                // </div>
               )
             })}
-          </div>
+          </Row>
         </main>
       </div>
     )
