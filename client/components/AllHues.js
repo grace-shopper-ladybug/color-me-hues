@@ -45,7 +45,7 @@ export class AllHues extends React.Component {
                   />
                   <Card.Body className="text-center">
                     <Card.Title>{hue.emotionName}</Card.Title>
-                    <Card.Text>${hue.price}.00</Card.Text>
+                    <Card.Text>${hue.price / 100}</Card.Text>
                     <Link to={`/hues/${hue.id}`}>
                       <Button variant="outline-secondary">Buy</Button>
                     </Link>
