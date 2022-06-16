@@ -81,6 +81,21 @@ User.encryptPassword = function(plainText, salt) {
     .digest('hex')
 }
 
+User.findByToken = async function(token) {
+  try {
+    const {id} = await jwt.verify(token, process.env.JWT)
+    const user = User.findByPk(id)
+    if (!user) {
+      throw 'nooo'
+    }
+    return user
+  } catch (ex) {
+    const error = Error('bad token')
+    error.status = 401
+    throw error
+  }
+}
+
 /**
  * hooks
  */
