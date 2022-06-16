@@ -26,9 +26,9 @@ export class AllHues extends React.Component {
   // -------- render -------->
   render() {
     return (
-      <div>
-        <Container>
-          <Row xs={1} md={2} className="g-4">
+      <div className="mt-6">
+        <Container fluid className="justify-content-center">
+          <Row xs={1} md={3} className="gx-4 ">
             {this.props.hues.map(hue => {
               return (
                 <Card
