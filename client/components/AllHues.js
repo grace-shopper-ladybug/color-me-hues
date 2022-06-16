@@ -37,6 +37,8 @@ export class AllHues extends React.Component {
                   key={hue.id}
                 >
                   <Card.Img
+                    className="mt-2"
+                    style={{borderRadius: '5%'}}
                     variant="top"
                     src={hue.image}
                     alt={hue.emotionHue}
