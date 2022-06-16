@@ -44,9 +44,9 @@ export class AllHues extends React.Component {
                     <div className="card-body text-center">
                       <h5 className="card-title">{hue.emotionName}</h5>
                       <h6 className="card-price">${hue.price}.00</h6>
-                      <a href={`/hues/${hue.id}`} className="btn btn-primary">
+                      <Link to={`/hues/${hue.id}`} className="btn btn-primary">
                         Buy
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

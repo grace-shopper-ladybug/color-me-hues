@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import {getSingleHue} from '../store/singleHue'
 
 class SingleHue extends React.Component {
@@ -34,10 +35,10 @@ class SingleHue extends React.Component {
                   <div className="product p-4">
                     <div className="d-flex justify-content-between align-items-end">
                       <div className="d-flex align-items-center">
-                        <a href="/">
+                        <Link to="/">
                           <i className="bi bi-arrow-left" />
                           <span className="ml-1">Back</span>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                     <div className="mt-4 mb-3">
