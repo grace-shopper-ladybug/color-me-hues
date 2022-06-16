@@ -59,6 +59,18 @@ async function seed() {
     })
   ])
 
+  /*
+  emotion color range 1-10, 10 being positive, 1 negative
+    • orange: 3
+    • red: 9
+    • blue: 4
+    • green: 7
+    • yellow: 8
+    • purple: 6
+
+    18 "emotionhues"
+  */
+
   const hues = await Promise.all([
     Hue.create({
       emotionName: 'Petrichor',
