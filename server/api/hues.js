@@ -13,7 +13,7 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-// GET /api/hues/:id
+// GET /api/hues/:hueId
 router.get('/:hueId', async (req, res, next) => {
   try {
     const hue = await Hue.findByPk(req.params.hueId)
@@ -34,6 +34,15 @@ router.post('/', async (req, res, next) => {
   }
 })
 
-// DELETE /api/hues/:id
+// DELETE /api/hues/:hueId
+router.delete('/:hueId', async (req, res, next) => {
+  try {
+    const hue = await Hue.findByPk(req.params.hueId)
+    await hue.destroy()
+    res.json(hue)
+  } catch (err) {
+    next(err)
+  }
+})
 
 // PUT /api/hues/:id
