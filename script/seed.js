@@ -80,7 +80,7 @@ async function seed() {
         'a pleasant smell that frequently accompanies the first rain after a long period of warm, dry weather.',
       hueColorFamily: 'green',
       quantity: 10,
-      price: 20.0
+      price: 2000
     }),
     Hue.create({
       emotionName: 'Dès Vue',
@@ -89,7 +89,7 @@ async function seed() {
       description: 'the awareness that this moment will become a memory.',
       hueColorFamily: 'red',
       quantity: 10,
-      price: 25.0
+      price: 2500
     }),
     Hue.create({
       emotionName: 'Kairosclerosis',
@@ -99,7 +99,7 @@ async function seed() {
         "the moment you look around and realize that you're currently happy",
       hueColorFamily: 'red',
       quantity: 10,
-      price: 75.0
+      price: 7500
     }),
     Hue.create({
       emotionName: 'Vemödalen',
@@ -108,7 +108,7 @@ async function seed() {
       description: 'the fear that originality is no longer possible',
       hueColorFamily: 'orange',
       quantity: 5,
-      price: 30.0
+      price: 3000
     }),
     Hue.create({
       emotionName: 'Harmonia',
@@ -118,7 +118,7 @@ async function seed() {
         'an itchy sense of dread when life feels just a hint too peaceful.',
       hueColorFamily: 'purple',
       quantity: 15,
-      price: 20.0
+      price: 2000
     }),
     Hue.create({
       emotionName: 'Liberosis',
@@ -128,7 +128,7 @@ async function seed() {
         'the desire to care less about things; to figure out a way to relax your grip on your life.',
       hueColorFamily: 'yellow',
       quantity: 15,
-      price: 35.0
+      price: 3500
     }),
     Hue.create({
       emotionName: 'Nikhedonia',
@@ -138,7 +138,7 @@ async function seed() {
         'the feeling of excitement or elation that comes from anticipating success.',
       hueColorFamily: 'green',
       quantity: 20,
-      price: 50.0
+      price: 5000
     }),
     Hue.create({
       emotionName: 'Euneirophrenia',
@@ -148,7 +148,7 @@ async function seed() {
         'the feeling of contentment that comes from waking up from a pleasant dream.',
       hueColorFamily: 'red',
       quantity: 30,
-      price: 30.0
+      price: 3000
     }),
     Hue.create({
       emotionName: 'Dolce far niente',
@@ -157,7 +157,7 @@ async function seed() {
       description: 'the pleasure of doing nothing.',
       hueColorFamily: 'red',
       quantity: 25,
-      price: 25.0
+      price: 2500
     }),
     Hue.create({
       emotionName: 'Ambedo',
@@ -166,7 +166,7 @@ async function seed() {
       description: 'a momentary trance of emotional clarity',
       hueColorFamily: 'yellow',
       quantity: 35,
-      price: 75.0
+      price: 7500
     }),
     Hue.create({
       emotionName: 'Suente',
@@ -176,7 +176,7 @@ async function seed() {
         'the state of being so familiar with someone that you can be in a room with them without thinking, without holding anything back, or without having to say a word.',
       hueColorFamily: 'green',
       quantity: 15,
-      price: 20.0
+      price: 2000
     }),
     Hue.create({
       emotionName: 'Amoransia',
@@ -186,7 +186,7 @@ async function seed() {
         'the melodramatic thrill of unrequited love; the longing for someone you can never have.',
       hueColorFamily: 'red',
       quantity: 20,
-      price: 75.0
+      price: 7500
     }),
     Hue.create({
       emotionName: 'Hubilance',
@@ -196,7 +196,7 @@ async function seed() {
         'the quiet poignance of your own responsibility for someone, with a mix of prise, fear, love and humility—much like feeling a baby fall asleep on your chest or driving at night surrounded by loved ones fast asleep in the car with you.',
       hueColorFamily: 'purple',
       quantity: 5,
-      price: 100.0
+      price: 10000
     }),
     Hue.create({
       emotionName: 'Ledsome',
@@ -206,7 +206,7 @@ async function seed() {
         'feeling lonely in a crowd; drifting along in a sea of anonymous faces but unable to communicate with or confide in any of them.',
       hueColorFamily: 'blue',
       quantity: 30,
-      price: 25.0
+      price: 2500
     }),
     Hue.create({
       emotionName: 'Etterath',
@@ -216,7 +216,7 @@ async function seed() {
         'the feeling of complete emptiness after a long and arduous process is complete.',
       hueColorFamily: 'yellow',
       quantity: 35,
-      price: 50.0
+      price: 5000
     }),
     Hue.create({
       emotionName: 'Galagog',
@@ -226,7 +226,7 @@ async function seed() {
         'the state of being simultaneously entranced and unsettled by the vastness of the cosmos, which makes your deepest concerns feel laughably quaint.',
       hueColorFamily: 'yellow',
       quantity: 20,
-      price: 50.0
+      price: 5000
     }),
     Hue.create({
       emotionName: 'Whipgraft Delusion',
@@ -236,7 +236,7 @@ async function seed() {
         "the phenomenon in which you catch your reflection in the mirror and get the sense that you're ppeering into the eyes of a stranger.",
       hueColorFamily: 'green',
       quantity: 25,
-      price: 75.0
+      price: 7500
     }),
     Hue.create({
       emotionName: 'Apolytus',
@@ -246,7 +246,7 @@ async function seed() {
         'the moment you realize you are changing as a person, finally outgrowing your old problems.',
       hueColorFamily: 'red',
       quantity: 25,
-      price: 100
+      price: 10000
     })
   ])
 
