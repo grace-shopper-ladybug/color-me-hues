@@ -31,7 +31,11 @@ export class AllHues extends React.Component {
           <Row xs={1} md={2} className="g-4">
             {this.props.hues.map(hue => {
               return (
-                <Card style={{width: '15rem', borderRadius: '5%'}} key={hue.id}>
+                <Card
+                  className="m-3"
+                  style={{width: '15rem', borderRadius: '5%'}}
+                  key={hue.id}
+                >
                   <Card.Img
                     variant="top"
                     src={hue.image}
