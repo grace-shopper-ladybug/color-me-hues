@@ -7,6 +7,7 @@ import Storefront from './components/Storefront'
 import SingleHue from './components/SingleHue'
 import {me} from './store'
 import Homepage from './components/Homepage'
+import Admin from './components/Admin'
 
 /**
  * COMPONENT
@@ -27,6 +28,8 @@ class Routes extends Component {
         <Route exact path="/hues/:hueId" component={SingleHue} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
+        {/* Admin only route — needs to be moved */}
+        <Route exact path="/admin" component={Admin} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
