@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
+const User = require('./user')
 
 // --------------- hue model --------------->
 
@@ -35,7 +36,7 @@ const Hue = db.define('hue', {
     max: 10
   },
   price: {
-    type: Sequelize.FLOAT,
+    type: Sequelize.INTEGER, // avoid issues with math with decimal and floats, use pennies and divide by 100 on front-end
     validate: {
       notEmpty: true
     }
