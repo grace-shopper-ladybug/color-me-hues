@@ -16,6 +16,8 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import Tooltip from 'react-bootstrap/Tooltip'
 
 // --------------- AllHues component --------------->
 export class AllHues extends React.Component {
@@ -36,13 +38,21 @@ export class AllHues extends React.Component {
                   style={{width: '15rem', borderRadius: '5%'}}
                   key={hue.id}
                 >
-                  <Card.Img
-                    className="mt-2"
-                    style={{borderRadius: '5%'}}
-                    variant="top"
-                    src={hue.image}
-                    alt={hue.emotionHue}
-                  />
+                  <OverlayTrigger
+                    placement="top"
+                    delay={{show: 250, hide: 400}}
+                    overlay={
+                      <Tooltip id="image-tooltip">{hue.description}</Tooltip>
+                    }
+                  >
+                    <Card.Img
+                      className="mt-2"
+                      style={{borderRadius: '5%'}}
+                      variant="top"
+                      src={hue.image}
+                      alt={hue.emotionHue}
+                    />
+                  </OverlayTrigger>
                   <Card.Body className="text-center">
                     <Card.Title>{hue.emotionName}</Card.Title>
                     <Card.Text>${hue.price / 100}</Card.Text>
