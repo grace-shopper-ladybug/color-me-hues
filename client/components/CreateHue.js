@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {createHue} from '../store/allHues'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 class CreateHue extends React.Component {
   constructor() {
@@ -35,21 +37,61 @@ class CreateHue extends React.Component {
     return (
       <div>
         <h4>Create Hue</h4>
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formName">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              type="text"
+              name="emotionName"
+              placeholder="Enter a name"
+              onChange={handleChange}
+              value={emotionName}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formDescription">
+            <Form.Label>Description</Form.Label>
+            <Form.Control
+              type="text"
+              name="description"
+              placeholder="Enter a description"
+              onChange={handleChange}
+              value={description}
+            />
+          </Form.Group>
+
+          {/* <input
+            name="emotionName"
+            placeholder="Name"
+            onChange={handleChange}
+            value={emotionName}
+            /> */}
+          {/* <input
+            name="description"
+            placeholder="Description"
+            onChange={handleChange}
+            value={description}
+            /> */}
+          <Button variant="primary" type="submit">
+            Create
+          </Button>
+        </Form>
+
+        {/* <form onSubmit={handleSubmit}>
           <input
             name="emotionName"
             placeholder="Name"
             onChange={handleChange}
             value={emotionName}
-          />
+            />
           <input
             name="description"
             placeholder="Description"
             onChange={handleChange}
             value={description}
-          />
+            />
           <button type="submit">Create</button>
-        </form>
+        </form>  */}
       </div>
     )
   }
