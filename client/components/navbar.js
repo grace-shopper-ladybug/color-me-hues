@@ -47,8 +47,8 @@ const NavigationBar = ({handleClick, isLoggedIn}) => (
               <NavDropdown.Item href="/user-home">Account</NavDropdown.Item>
               <NavDropdown.Item href="/orders">Orders</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
+              <NavDropdown.Item href="#action5" onClick={handleClick}>
+                Logout
               </NavDropdown.Item>
             </NavDropdown>
           </div>
