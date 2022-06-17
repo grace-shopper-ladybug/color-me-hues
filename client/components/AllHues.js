@@ -16,7 +16,7 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import Col from 'react-bootstrap/Col'
 import Tooltip from 'react-bootstrap/Tooltip'
 
 // --------------- AllHues component --------------->
@@ -50,7 +50,7 @@ export class AllHues extends React.Component {
                       <div className="hover-overlay"></div>
                       <div className="hover-3-content px-5 py-4">
                         <p className="hover-3-description small text-uppercase mb-0">
-                          {hue.description}
+                          {hue.shortDescription}
                         </p>
                       </div>
                     </div>

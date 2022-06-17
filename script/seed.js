@@ -78,6 +78,8 @@ async function seed() {
       image: `/images/squared/petrichor.png`,
       description:
         'a pleasant smell that frequently accompanies the first rain after a long period of warm, dry weather.',
+      shortDescription:
+        'the smell of the first rain after a long period of dryness.',
       hueColorFamily: 'green',
       quantity: 10,
       price: 2000
@@ -87,6 +89,7 @@ async function seed() {
       emotionHue: '#aa767c',
       image: `/images/squared/des-vue.png`,
       description: 'the awareness that this moment will become a memory.',
+      shortDescription: 'the awareness that this moment will become a memory.',
       hueColorFamily: 'red',
       quantity: 10,
       price: 2500
@@ -96,7 +99,9 @@ async function seed() {
       emotionHue: '#a4161a',
       image: `/images/squared/kairosclerosis.png`,
       description:
-        "the moment you look around and realize that you're currently happy",
+        "the moment you look around and realize that you're currently happy.",
+      shortDescription:
+        "the moment you look around and realize that you're currently happy.",
       hueColorFamily: 'red',
       quantity: 10,
       price: 7500
@@ -105,7 +110,8 @@ async function seed() {
       emotionName: 'Vemödalen',
       emotionHue: '#ffcdb2',
       image: `/images/squared/vemodalen.png`,
-      description: 'the fear that originality is no longer possible',
+      description: 'the fear that originality is no longer possible.',
+      shortDescription: 'the fear that originality is no longer possible.',
       hueColorFamily: 'orange',
       quantity: 5,
       price: 3000
@@ -115,6 +121,8 @@ async function seed() {
       emotionHue: '#b5838d',
       image: `/images/squared/harmonia.png`,
       description:
+        'an itchy sense of dread when life feels just a hint too peaceful.',
+      shortDescription:
         'an itchy sense of dread when life feels just a hint too peaceful.',
       hueColorFamily: 'purple',
       quantity: 15,
@@ -126,6 +134,7 @@ async function seed() {
       image: `/images/squared/liberosis.png`,
       description:
         'the desire to care less about things; to figure out a way to relax your grip on your life.',
+      shortDescription: 'the desire to care less about things.',
       hueColorFamily: 'yellow',
       quantity: 15,
       price: 3500
@@ -135,6 +144,8 @@ async function seed() {
       emotionHue: '#87a330',
       image: `/images/squared/nikhedonia.png`,
       description:
+        'the feeling of excitement or elation that comes from anticipating success.',
+      shortDescription:
         'the feeling of excitement or elation that comes from anticipating success.',
       hueColorFamily: 'green',
       quantity: 20,
@@ -146,6 +157,8 @@ async function seed() {
       image: `/images/squared/euneirophrenia.png`,
       description:
         'the feeling of contentment that comes from waking up from a pleasant dream.',
+      shortDescription:
+        'the feeling of contentment that comes from waking up from a pleasant dream.',
       hueColorFamily: 'red',
       quantity: 30,
       price: 3000
@@ -155,6 +168,7 @@ async function seed() {
       emotionHue: '#a56336',
       image: `/images/squared/dolce-far-niente.png`,
       description: 'the pleasure of doing nothing.',
+      shortDescription: 'the pleasure of doing nothing.',
       hueColorFamily: 'red',
       quantity: 25,
       price: 2500
@@ -163,7 +177,8 @@ async function seed() {
       emotionName: 'Ambedo',
       emotionHue: '#ffedd8',
       image: `/images/squared/ambedo.png`,
-      description: 'a momentary trance of emotional clarity',
+      description: 'a momentary trance of emotional clarity.',
+      shortDescription: 'a momentary trance of emotional clarity.',
       hueColorFamily: 'yellow',
       quantity: 35,
       price: 7500
@@ -174,6 +189,8 @@ async function seed() {
       image: `/images/squared/suente.png`,
       description:
         'the state of being so familiar with someone that you can be in a room with them without thinking, without holding anything back, or without having to say a word.',
+      shortDescription:
+        'being so familiar with someone that you can be in a room with them without thinking.',
       hueColorFamily: 'green',
       quantity: 15,
       price: 2000
@@ -184,6 +201,7 @@ async function seed() {
       image: `/images/squared/amoransia.png`,
       description:
         'the melodramatic thrill of unrequited love; the longing for someone you can never have.',
+      shortDescription: 'the longing for someone you can never have.',
       hueColorFamily: 'red',
       quantity: 20,
       price: 7500
@@ -194,6 +212,8 @@ async function seed() {
       image: `/images/squared/hubilance.png`,
       description:
         'the quiet poignance of your own responsibility for someone, with a mix of prise, fear, love and humility—much like feeling a baby fall asleep on your chest or driving at night surrounded by loved ones fast asleep in the car with you.',
+      shortDescription:
+        'the quiet poignance of your own responsibility for someone.',
       hueColorFamily: 'purple',
       quantity: 5,
       price: 10000
@@ -204,6 +224,7 @@ async function seed() {
       image: `/images/squared/ledsome.png`,
       description:
         'feeling lonely in a crowd; drifting along in a sea of anonymous faces but unable to communicate with or confide in any of them.',
+      shortDescription: 'feeling lonely in a crowd.',
       hueColorFamily: 'blue',
       quantity: 30,
       price: 2500
@@ -214,6 +235,8 @@ async function seed() {
       image: `/images/squared/etterath.png`,
       description:
         'the feeling of complete emptiness after a long and arduous process is complete.',
+      shortDescription:
+        'the feeling of complete emptiness after an arduous process is complete.',
       hueColorFamily: 'yellow',
       quantity: 35,
       price: 5000
@@ -224,6 +247,8 @@ async function seed() {
       image: `/images/squared/galagog.png`,
       description:
         'the state of being simultaneously entranced and unsettled by the vastness of the cosmos, which makes your deepest concerns feel laughably quaint.',
+      shortDescription:
+        'the state of being amazed yet unsettled by the vastness of the cosmos',
       hueColorFamily: 'yellow',
       quantity: 20,
       price: 5000
@@ -233,7 +258,9 @@ async function seed() {
       emotionHue: '#3891a6',
       image: `/images/squared/whipgraft-delusion.png`,
       description:
-        "the phenomenon in which you catch your reflection in the mirror and get the sense that you're ppeering into the eyes of a stranger.",
+        "the phenomenon in which you catch your reflection in the mirror and get the sense that you're peering into the eyes of a stranger.",
+      shortDescription:
+        'the phenomenon of looking into the mirror and seeing a stranger.',
       hueColorFamily: 'green',
       quantity: 25,
       price: 7500
@@ -244,6 +271,8 @@ async function seed() {
       image: `/images/squared/apolytus.png`,
       description:
         'the moment you realize you are changing as a person, finally outgrowing your old problems.',
+      shortDescription:
+        'the moment you realize you are changing and finally outgrowing your old problems.',
       hueColorFamily: 'red',
       quantity: 25,
       price: 10000
