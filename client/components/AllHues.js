@@ -17,7 +17,6 @@ import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
-import Tooltip from 'react-bootstrap/Tooltip'
 
 // --------------- AllHues component --------------->
 export class AllHues extends React.Component {
