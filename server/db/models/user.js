@@ -57,8 +57,6 @@ const User = db.define('user', {
   }
 })
 
-module.exports = User
-
 /**
  * instanceMethods
  */
@@ -111,3 +109,5 @@ User.beforeUpdate(setSaltAndPassword)
 User.beforeBulkCreate(users => {
   users.forEach(setSaltAndPassword)
 })
+
+module.exports = User
