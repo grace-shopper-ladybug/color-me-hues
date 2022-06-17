@@ -44,7 +44,7 @@ const NavigationBar = ({handleClick, isLoggedIn}) => (
           <div>
             {/* The navbar will show these links after you log in */}
             <NavDropdown title="Account" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="/user-home">Account</NavDropdown.Item>
+              <NavDropdown.Item href="/home">Account</NavDropdown.Item>
               <NavDropdown.Item href="/orders">Orders</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action5" onClick={handleClick}>

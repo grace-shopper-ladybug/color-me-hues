@@ -30,7 +30,6 @@ class Routes extends Component {
         <Route path="/hues/:hueId/edit" component={EditHue} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
-        <Route exact path="/user-home" component={UserHome} />
         {/* Admin only route — needs to be moved */}
         <Route exact path="/admin" component={Admin} />
         {isLoggedIn && (
