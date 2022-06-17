@@ -8,6 +8,7 @@ import SingleHue from './components/SingleHue'
 import {me} from './store'
 import Homepage from './components/Homepage'
 import Admin from './components/Admin'
+import EditHue from './components/EditHue'
 
 /**
  * COMPONENT
@@ -26,6 +27,7 @@ class Routes extends Component {
         <Route exact path="/" component={Storefront} />
         <Route exact path="/products" component={Storefront} />
         <Route exact path="/hues/:hueId" component={SingleHue} />
+        <Route path="/hues/:hueId/edit" component={EditHue} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         {/* Admin only route — needs to be moved */}
