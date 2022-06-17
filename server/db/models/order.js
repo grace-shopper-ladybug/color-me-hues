@@ -5,10 +5,7 @@ const Hue = require('./hue')
 
 // --------------- hue model --------------->
 
-const Cart = db.define('cart', {
-  items: {
-    type: Sequelize.ARRAY
-  },
+const Order = db.define('order', {
   subTotal: {
     type: Sequelize.INTEGER,
     defaultValue: 0
@@ -19,4 +16,4 @@ const Cart = db.define('cart', {
   }
 })
 
-module.exports = Cart
+module.exports = Order
