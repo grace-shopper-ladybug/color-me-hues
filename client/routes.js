@@ -30,6 +30,8 @@ class Routes extends Component {
         <Route path="/hues/:hueId/edit" component={EditHue} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/admin" component={Admin} />
+
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
@@ -37,12 +39,12 @@ class Routes extends Component {
           </Switch>
         )}
 
-        {isAdmin && (
+        {/* {isAdmin && (
           <Switch>
-            {/* Routes placed here are only available for admins */}
+            Routes placed here are only available for admins
             <Route exact path="/admin" component={Admin} />
           </Switch>
-        )}
+        )} */}
 
         {/* Displays our Login component as a fallback */}
         <Route component={Login} />
