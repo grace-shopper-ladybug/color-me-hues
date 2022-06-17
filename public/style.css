@@ -28,6 +28,7 @@ form div {
   color: black;
 }
 
+/* AllHues hover description styling */
 .hover-3::after {
   content: '';
   width: calc(100% - 3rem);
