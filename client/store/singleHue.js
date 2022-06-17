@@ -28,7 +28,7 @@ export const updateHue = (hue, history) => {
   return async dispatch => {
     const {data: updated} = await axios.put(`/api/hues/${hue.id}`, hue)
     dispatch(_updateHue(updated))
-    history.push(`/hues/${hue.id}`)
+    // history.push(`/hues/${hue.id}`)
   }
 }
 
