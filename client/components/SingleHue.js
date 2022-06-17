@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {getSingleHue} from '../store/singleHue'
+import {getHue} from '../store/singleHue'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
@@ -10,7 +10,7 @@ import Container from 'react-bootstrap/Container'
 
 class SingleHue extends React.Component {
   componentDidMount() {
-    this.props.loadSingleHue(this.props.match.params.hueId)
+    this.props.getHue(this.props.match.params.hueId)
   }
 
   render() {
@@ -88,7 +88,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  loadSingleHue: id => dispatch(getSingleHue(id))
+  getHue: id => dispatch(getHue(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleHue)

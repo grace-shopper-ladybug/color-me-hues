@@ -46,3 +46,11 @@ router.delete('/:id', async (req, res, next) => {
 })
 
 // PUT /api/hues/:id
+router.put('/:id', async (req, res, next) => {
+  try {
+    const hue = await Hue.findByPk(req.params.id)
+    res.send(await hue.update(req.body))
+  } catch (error) {
+    next(error)
+  }
+})

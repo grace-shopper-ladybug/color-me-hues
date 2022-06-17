@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import {getHues, deleteHue} from '../store/allHues'
 import CreateHue from './CreateHue'
 import Table from 'react-bootstrap/Table'
@@ -47,10 +48,13 @@ class Admin extends React.Component {
                   <td>{hue.id}</td>
                   <td>{hue.emotionName}</td>
                   <td>{hue.description}</td>
-                  <td>{hue.price}</td>
+                  <td>{hue.price / 100}</td>
                   <td>{hue.quantity}</td>
                   <td>
-                    <Button type="button">Edit</Button>
+                    {/* wrapping buttons in links is not semantically correct HTML — need to find a better way to handle linked buttons */}
+                    <Link to={`/hues/${hue.id}/edit`}>
+                      <Button type="button">Edit</Button>
+                    </Link>
                   </td>
                   <td>
                     <Button
