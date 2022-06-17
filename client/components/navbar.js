@@ -53,14 +53,17 @@ const NavigationBar = ({handleClick, isLoggedIn}) => (
             </NavDropdown>
           </div>
         ) : (
-          <div>
+          <div className="nav-bar-links">
             {/* The navbar will show these links before you log in */}
             <Link to="/login">Login</Link>
             <Link to="/signup">Sign Up</Link>
           </div>
         )}
         <Nav.Link href="/cart">
-          <i className="bi bi-cart" style={{fontSize: '30px'}} />
+          <i
+            className="bi bi-cart"
+            style={{fontSize: '30px', color: 'black'}}
+          />
         </Nav.Link>
       </Navbar.Collapse>
     </Container>

@@ -24,6 +24,12 @@ const Hue = db.define('hue', {
       notEmpty: true
     }
   },
+  shortDescription: {
+    type: Sequelize.STRING,
+    validate: {
+      notEmpty: true
+    }
+  },
   hueColorFamily: {
     type: Sequelize.STRING,
     validate: {
