@@ -32,7 +32,7 @@ form div {
 .hover-3::after {
   content: '';
   width: calc(100% - 3rem);
-  height: calc(100% - 12rem);
+  height: calc(100% - 11.5rem);
   border: 1px solid #fff;
   position: absolute;
   top: 1.5rem;
