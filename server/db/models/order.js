@@ -3,7 +3,9 @@ const db = require('../db')
 const User = require('./user')
 const Hue = require('./hue')
 
-// --------------- hue model --------------->
+// --------------- cart model --------------->
+
+// only for logged in users - guests use Local Storage
 
 const Order = db.define('order', {
   subTotal: {

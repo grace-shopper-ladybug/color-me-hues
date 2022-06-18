@@ -272,7 +272,7 @@ async function seed() {
       description:
         'the moment you realize you are changing as a person, finally outgrowing your old problems.',
       shortDescription:
-        'the moment you realize you are changing and finally outgrowing your old problems.',
+        'when you realize you are changing and finally outgrowing your old problems.',
       hueColorFamily: 'red',
       quantity: 25,
       price: 10000
