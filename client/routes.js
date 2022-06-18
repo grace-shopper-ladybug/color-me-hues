@@ -2,13 +2,17 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {Login, Signup, UserHome} from './components'
-import Storefront from './components/Storefront'
-import SingleHue from './components/SingleHue'
 import {me} from './store'
-import Homepage from './components/Homepage'
-import Admin from './components/Admin'
-import EditHue from './components/EditHue'
+import {
+  Login,
+  Signup,
+  UserHome,
+  Storefront,
+  SingleHue,
+  Admin,
+  EditHue,
+  Order
+} from './components'
 
 /**
  * COMPONENT
