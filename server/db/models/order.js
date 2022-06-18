@@ -7,10 +7,7 @@ const Hue = require('./hue')
 
 // only for logged in users - guests use Local Storage
 
-const Cart = db.define('cart', {
-  items: {
-    type: Sequelize.ARRAY
-  },
+const Order = db.define('order', {
   subTotal: {
     type: Sequelize.INTEGER,
     defaultValue: 0
@@ -21,4 +18,4 @@ const Cart = db.define('cart', {
   }
 })
 
-module.exports = Cart
+module.exports = Order

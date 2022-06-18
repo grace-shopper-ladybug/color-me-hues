@@ -1,5 +1,6 @@
 const User = require('./user')
 const Hue = require('./hue')
+const Order = require('./order')
 
 /**
  * If we had any associations to make, this would be a great place to put them!
@@ -19,13 +20,11 @@ const Hue = require('./hue')
 // Hue (product)
 // Order
 
-// Cart isn't needed — Orders can have isOrder column (true/false) to handle that
+Order.belongsTo(User)
+User.hasMany(Order)
 
-// Order.BelongsTo(User);
-// User.HasMany(Order);
-
-// Order.HasMany(Hue);
-// Hue.BelongsToMany(Order, { through: 'order-hues' });
+Order.hasMany(Hue)
+Hue.belongsToMany(Order, {through: 'order-hues'})
 
 // For later: handling favorites and admin control
 // User.HasMany(Hue);
@@ -33,5 +32,6 @@ const Hue = require('./hue')
 
 module.exports = {
   User,
-  Hue
+  Hue,
+  Order
 }
