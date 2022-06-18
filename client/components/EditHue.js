@@ -46,10 +46,6 @@ class EditHue extends React.Component {
 
     return (
       <div>
-        <p>
-          Under construction — should I render out the current listing so people
-          know what to change? Or format the form with pre-populated text.
-        </p>
         <h1>{hue.emotionName}</h1>
         <p>{hue.description}</p>
         <p>Price: ${hue.price / 100}</p>

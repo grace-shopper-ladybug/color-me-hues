@@ -60,38 +60,10 @@ class CreateHue extends React.Component {
             />
           </Form.Group>
 
-          {/* <input
-            name="emotionName"
-            placeholder="Name"
-            onChange={handleChange}
-            value={emotionName}
-            /> */}
-          {/* <input
-            name="description"
-            placeholder="Description"
-            onChange={handleChange}
-            value={description}
-            /> */}
           <Button variant="primary" type="submit">
             Create
           </Button>
         </Form>
-
-        {/* <form onSubmit={handleSubmit}>
-          <input
-            name="emotionName"
-            placeholder="Name"
-            onChange={handleChange}
-            value={emotionName}
-            />
-          <input
-            name="description"
-            placeholder="Description"
-            onChange={handleChange}
-            value={description}
-            />
-          <button type="submit">Create</button>
-        </form>  */}
       </div>
     )
   }

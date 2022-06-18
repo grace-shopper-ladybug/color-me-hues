@@ -1,13 +1,4 @@
-/*
-WHAT IS STILL NEEDED:
-
-• Delete button
-• Form to create new emotionHue (if needed on this page)
-• LASTLY, solidified color images for the emotionHues
-*/
-
 // -------- imports -------->
-
 import React from 'react'
 import {connect} from 'react-redux'
 import {getHues} from '../store/allHues'

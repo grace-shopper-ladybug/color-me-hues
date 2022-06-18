@@ -1,6 +1,4 @@
 import React from 'react'
-import AllHues from './AllHues'
-import Navbar from './Navbar'
 
 class Homepage extends React.Component {
   render() {
