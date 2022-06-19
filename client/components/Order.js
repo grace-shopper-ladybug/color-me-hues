@@ -15,7 +15,6 @@ class Order extends React.Component {
     this.props.getHues()
     this.filterHues()
   }
-  // WILL ADD ADD ITEM AND REMOVE ITEM HERE AS WELL, IN ORDER TO ADJUST THE INPUT QUANTITIES FROM THE CART COMPONENT
 
   addToCart(hueId, hue) {
     // json.stringify method takes in an array/object, and setItem takes in two parameters - a key and a value. the value will be an array.
@@ -105,7 +104,6 @@ class Order extends React.Component {
       }
     }
 
-    // this is the link I used for the quantity buttons, haven't actually added functionality yet: https://bootsnipp.com/snippets/e3q3a
     return (
       <Container>
         <h1>Shopping Cart</h1>
