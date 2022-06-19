@@ -9,6 +9,7 @@ class Order extends React.Component {
     super()
     this.filterHues = this.filterHues.bind(this)
     this.calculateTotal = this.calculateTotal.bind(this)
+    // this.addToCart = this.addToCart.bind(this)
   }
 
   componentDidMount() {
@@ -17,20 +18,30 @@ class Order extends React.Component {
   }
   // WILL ADD ADD ITEM AND REMOVE ITEM HERE AS WELL, IN ORDER TO ADJUST THE INPUT QUANTITIES FROM THE CART COMPONENT
 
-  addToCart(hue) {
+  addToCart(hueId, hue) {
     // json.stringify method takes in an array/object, and setItem takes in two parameters - a key and a value. the value will be an array.
     let localOrder = localStorage.getItem('order')
+    let localOrderItems = localStorage.getItem('orderItems')
     let order = []
+    let orderItems = []
 
     // check to see if there are already items in the cart, or if this is a fresh cart.
     if (localOrder) {
       // if there are items in the cart already, move the items from the existing order into the order that we are going to push into our local storage
       order = [...JSON.parse(localOrder)]
+      orderItems = [...JSON.parse(localOrderItems)]
     }
-    order.push(hue)
+    order.push(hueId)
+    orderItems.push(hue)
 
     window.localStorage.setItem('order', JSON.stringify(order))
+    window.localStorage.setItem('orderItems', JSON.stringify(orderItems))
+    console.log(window.localStorage.getItem('order'))
   }
+
+  // removeFromCart(hue) {
+
+  // }
 
   // map through localStorage for all ids of hues, store ids in array
   // filter through all hues for items with ids included in array
@@ -57,11 +68,16 @@ class Order extends React.Component {
   render() {
     const hues = this.props.hues
     const filteredHues = this.filterHues()
-    const total = this.calculateTotal(filteredHues)
 
     // if logged in, huesInCart will equal something on the state, and if not logged in, we will take localstorage and set that equal to huesInCart
 
     const huesInCart = JSON.parse(window.localStorage.getItem('order')) || []
+
+    const huesObjInCart =
+      JSON.parse(window.localStorage.getItem('orderItems')) || []
+
+    console.log(huesObjInCart)
+    const total = this.calculateTotal(huesObjInCart)
     console.log(huesInCart)
 
     // use this hash table in order to see quantity
@@ -128,7 +144,7 @@ class Order extends React.Component {
                             data-type="plus"
                             data-field=""
                             onClick={() => {
-                              this.addToCart(hue.id)
+                              this.addToCart(hue.id, hue)
                               this.forceUpdate()
                             }}
                           >
@@ -152,7 +168,7 @@ class Order extends React.Component {
         </Table>
         <div className="d-inline-flex">
           <h3 className="pr-5">
-            Subtotal ({filteredHues.length} items): ${total}
+            Subtotal ({huesInCart.length} items): ${total}
           </h3>
           <Button variant="outline-success">Checkout</Button>
         </div>
