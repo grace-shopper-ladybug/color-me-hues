@@ -19,16 +19,18 @@ class SingleHue extends React.Component {
     // json.stringify method takes in an array/object, and setItem takes in two parameters - a key and a value. the value will be an array.
     let localOrder = localStorage.getItem('order')
     let order = []
+    console.log(JSON.parse(window.localStorage.getItem('order')))
 
     // check to see if there are already items in the cart, or if this is a fresh cart.
     if (localOrder) {
       // if there are items in the cart already, move the items from the existing order into the order that we are going to push into our local storage
       order = [...JSON.parse(localOrder)]
-    } else {
-      order.push(hue)
     }
+    order.push(hue)
+    console.log(order)
 
-    window.localStorage.setItem('cart', JSON.stringify(order))
+    window.localStorage.setItem('order', JSON.stringify(order))
+    console.log(window.localStorage.getItem('order'))
   }
 
   render() {
@@ -79,8 +81,7 @@ class SingleHue extends React.Component {
                           className="text-uppercase mr-2 px-4"
                           onClick={() =>
                             // isLoggedIn ? insert logged in function here, :
-                            // this.guestAddToCart(EventTarget)
-                            console.log(hue)
+                            this.guestAddToCart(hue.id)
                           }
                         >
                           Add to cart

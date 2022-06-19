@@ -21,8 +21,12 @@ class Order extends React.Component {
   // use reduce on filtered hues
 
   filterHues() {
-    const huesInCart = [1, 10, 12] // this will have to be replaced with array of ids of hues stored in localStorage for guests
-    return this.props.hues.filter(hue => huesInCart.includes(hue.id))
+    const huesInCart = JSON.parse(window.localStorage.getItem('order')) // array of ids of hues stored in localStorage for guest checkout
+
+    // if there are hues in the cart, return them. else, return an empty array or else the cart component will break due to "includes" not working on null.
+    if (huesInCart)
+      return this.props.hues.filter(hue => huesInCart.includes(hue.id))
+    return []
   }
 
   calculateTotal(huesArray) {
@@ -52,55 +56,69 @@ class Order extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {filteredHues.map(hue => (
-              <tr key={hue.id}>
-                <td>{hue.id}</td>
-                <td>
-                  <img src={hue.image} />
-                </td>
-                <td>{hue.emotionName}</td>
-                <td>${hue.price / 100}</td>
-                <td>
-                  <Col className="lg-2">
-                    <InputGroup className="input-group">
-                      <span className="input-group-btn">
-                        <Button
-                          type="button"
-                          class="quantity-left-minus btn btn-danger btn-number"
-                          data-type="minus"
-                          data-field=""
-                        >
-                          <i className="bi bi-dash"></i>
-                        </Button>
-                      </span>
-                      <input
-                        type="text"
-                        id="quantity"
-                        name="quantity"
-                        className="form-control input-number"
-                        value="1"
-                        min="1"
-                        max={hue.quantity}
-                      />
-                      <span className="input-group-btn">
-                        <Button
-                          type="button"
-                          className="quantity-right-plus btn btn-success btn-number"
-                          data-type="plus"
-                          data-field=""
-                        >
-                          <i className="bi bi-plus"></i>
-                        </Button>
-                      </span>
-                    </InputGroup>
-                  </Col>
-                </td>
+            {filteredHues ? (
+              filteredHues.map(hue => (
+                <tr key={hue.id}>
+                  <td>{hue.id}</td>
+                  <td>
+                    <img src={hue.image} />
+                  </td>
+                  <td>{hue.emotionName}</td>
+                  <td>${hue.price / 100}</td>
+                  <td>
+                    <Col className="lg-2">
+                      <InputGroup className="input-group">
+                        <span className="input-group-btn">
+                          <Button
+                            type="button"
+                            className="quantity-left-minus btn btn-danger btn-number"
+                            data-type="minus"
+                            data-field=""
+                          >
+                            <i className="bi bi-dash"></i>
+                          </Button>
+                        </span>
+                        <input
+                          type="text"
+                          id="quantity"
+                          name="quantity"
+                          className="form-control input-number"
+                          // value = order quantity
+                          readOnly="1"
+                          min="1"
+                          max={hue.quantity}
+                        />
+                        <span className="input-group-btn">
+                          <Button
+                            type="button"
+                            className="quantity-right-plus btn btn-success btn-number"
+                            data-type="plus"
+                            data-field=""
+                          >
+                            <i className="bi bi-plus"></i>
+                          </Button>
+                        </span>
+                      </InputGroup>
+                    </Col>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
-            ))}
+            )}
           </tbody>
         </Table>
-
-        <p>Total: ${total}</p>
+        <div className="d-inline-flex">
+          <h3 className="pr-5">
+            Subtotal ({filteredHues.length} items): ${total}
+          </h3>
+          <Button>Checkout</Button>
+        </div>
       </Container>
     )
   }
