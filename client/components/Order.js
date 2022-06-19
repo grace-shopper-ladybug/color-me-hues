@@ -64,7 +64,6 @@ class Order extends React.Component {
 
   filterHues() {
     // if logged in, huesInCart will equal something on the state, and if not logged in, we will take localstorage and set that equal to huesInCart
-
     const huesInCart = JSON.parse(window.localStorage.getItem('order')) // array of ids of hues stored in localStorage for guest checkout
 
     // if there are hues in the cart, return them. else, return an empty array or else the cart component will break due to "includes" not working on null.
@@ -85,7 +84,6 @@ class Order extends React.Component {
     const filteredHues = this.filterHues()
 
     // if logged in, huesInCart will equal something on the state, and if not logged in, we will take localstorage and set that equal to huesInCart
-
     const huesInCart = JSON.parse(window.localStorage.getItem('order')) || []
 
     const huesObjInCart =
