@@ -117,7 +117,7 @@ class Order extends React.Component {
           <h3 className="pr-5">
             Subtotal ({filteredHues.length} items): ${total}
           </h3>
-          <Button>Checkout</Button>
+          <Button variant="outline-success">Checkout</Button>
         </div>
       </Container>
     )
