@@ -9,7 +9,6 @@ class Order extends React.Component {
     super()
     this.filterHues = this.filterHues.bind(this)
     this.calculateTotal = this.calculateTotal.bind(this)
-    // this.addToCart = this.addToCart.bind(this)
   }
 
   componentDidMount() {
@@ -38,9 +37,28 @@ class Order extends React.Component {
     window.localStorage.setItem('orderItems', JSON.stringify(orderItems))
   }
 
-  // removeFromCart(hue) {
+  removeFromCart(hueId, hue) {
+    let order = JSON.parse(localStorage.getItem('order'))
+    let orderItems = JSON.parse(localStorage.getItem('orderItems'))
 
-  // }
+    for (let i = 0; i < order.length; i++) {
+      if (order[i] === hueId) {
+        order.splice(i, 1)
+        break
+      }
+    }
+
+    for (let i = 0; i < orderItems.length; i++) {
+      if (orderItems[i].emotionName === hue.emotionName) {
+        console.log('yay')
+        orderItems.splice(i, 1)
+        break
+      }
+    }
+
+    window.localStorage.setItem('order', JSON.stringify(order))
+    window.localStorage.setItem('orderItems', JSON.stringify(orderItems))
+  }
 
   // map through localStorage for all ids of hues, store ids in array
   // filter through all hues for items with ids included in array
@@ -121,6 +139,10 @@ class Order extends React.Component {
                             className="quantity-left-minus btn btn-danger btn-number"
                             data-type="minus"
                             data-field=""
+                            onClick={() => {
+                              this.removeFromCart(hue.id, hue)
+                              this.forceUpdate()
+                            }}
                           >
                             <i className="bi bi-dash"></i>
                           </Button>
