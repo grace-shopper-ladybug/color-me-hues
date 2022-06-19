@@ -13,14 +13,32 @@ class Order extends React.Component {
 
   componentDidMount() {
     this.props.getHues()
+    this.filterHues()
   }
   // WILL ADD ADD ITEM AND REMOVE ITEM HERE AS WELL, IN ORDER TO ADJUST THE INPUT QUANTITIES FROM THE CART COMPONENT
+
+  addToCart(hue) {
+    // json.stringify method takes in an array/object, and setItem takes in two parameters - a key and a value. the value will be an array.
+    let localOrder = localStorage.getItem('order')
+    let order = []
+
+    // check to see if there are already items in the cart, or if this is a fresh cart.
+    if (localOrder) {
+      // if there are items in the cart already, move the items from the existing order into the order that we are going to push into our local storage
+      order = [...JSON.parse(localOrder)]
+    }
+    order.push(hue)
+
+    window.localStorage.setItem('order', JSON.stringify(order))
+  }
 
   // map through localStorage for all ids of hues, store ids in array
   // filter through all hues for items with ids included in array
   // use reduce on filtered hues
 
   filterHues() {
+    // if logged in, huesInCart will equal something on the state, and if not logged in, we will take localstorage and set that equal to huesInCart
+
     const huesInCart = JSON.parse(window.localStorage.getItem('order')) // array of ids of hues stored in localStorage for guest checkout
 
     // if there are hues in the cart, return them. else, return an empty array or else the cart component will break due to "includes" not working on null.
@@ -40,6 +58,22 @@ class Order extends React.Component {
     const hues = this.props.hues
     const filteredHues = this.filterHues()
     const total = this.calculateTotal(filteredHues)
+
+    // if logged in, huesInCart will equal something on the state, and if not logged in, we will take localstorage and set that equal to huesInCart
+
+    const huesInCart = JSON.parse(window.localStorage.getItem('order')) || []
+    console.log(huesInCart)
+
+    // use this hash table in order to see quantity
+    let huesHash = {}
+
+    for (let i = 0; i < huesInCart.length; i++) {
+      if (huesHash[huesInCart[i]]) {
+        huesHash[huesInCart[i]]++
+      } else {
+        huesHash[huesInCart[i]] = 1
+      }
+    }
 
     // this is the link I used for the quantity buttons, haven't actually added functionality yet: https://bootsnipp.com/snippets/e3q3a
     return (
@@ -83,8 +117,7 @@ class Order extends React.Component {
                           id="quantity"
                           name="quantity"
                           className="form-control input-number"
-                          // value = order quantity
-                          readOnly="1"
+                          value={huesHash[hue.id]}
                           min="1"
                           max={hue.quantity}
                         />
@@ -94,6 +127,10 @@ class Order extends React.Component {
                             className="quantity-right-plus btn btn-success btn-number"
                             data-type="plus"
                             data-field=""
+                            onClick={() => {
+                              this.addToCart(hue.id)
+                              this.forceUpdate()
+                            }}
                           >
                             <i className="bi bi-plus"></i>
                           </Button>
