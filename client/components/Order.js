@@ -36,7 +36,6 @@ class Order extends React.Component {
 
     window.localStorage.setItem('order', JSON.stringify(order))
     window.localStorage.setItem('orderItems', JSON.stringify(orderItems))
-    console.log(window.localStorage.getItem('order'))
   }
 
   // removeFromCart(hue) {
@@ -76,9 +75,7 @@ class Order extends React.Component {
     const huesObjInCart =
       JSON.parse(window.localStorage.getItem('orderItems')) || []
 
-    console.log(huesObjInCart)
     const total = this.calculateTotal(huesObjInCart)
-    console.log(huesInCart)
 
     // use this hash table in order to see quantity
     let huesHash = {}
