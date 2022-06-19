@@ -13,6 +13,29 @@ class SingleHue extends React.Component {
     this.props.getHue(this.props.match.params.hueId)
   }
 
+  // add a function that will add a hue onto localstorage when the "add to cart" button is clicked (only if the user is not logged in)
+
+  guestAddToCart(hueId, hue) {
+    // json.stringify method takes in an array/object, and setItem takes in two parameters - a key and a value. the value will be an array.
+    let localOrder = localStorage.getItem('order')
+    let localOrderItems = localStorage.getItem('orderItems')
+    let order = []
+    let orderItems = []
+
+    // check to see if there are already items in the cart, or if this is a fresh cart.
+    if (localOrder) {
+      // if there are items in the cart already, move the items from the existing order into the order that we are going to push into our local storage
+      order = [...JSON.parse(localOrder)]
+      orderItems = [...JSON.parse(localOrderItems)]
+    }
+    order.push(hueId)
+    orderItems.push(hue)
+
+    window.localStorage.setItem('order', JSON.stringify(order))
+    window.localStorage.setItem('orderItems', JSON.stringify(orderItems))
+    console.log(window.localStorage.getItem('order'))
+  }
+
   render() {
     const hue = this.props.hue
     return (
@@ -59,6 +82,10 @@ class SingleHue extends React.Component {
                         <Button
                           variant="outline-secondary"
                           className="text-uppercase mr-2 px-4"
+                          onClick={() =>
+                            // isLoggedIn ? insert logged in function here, :
+                            this.guestAddToCart(hue.id, hue)
+                          }
                         >
                           Add to cart
                         </Button>
