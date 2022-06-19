@@ -50,7 +50,6 @@ class Order extends React.Component {
 
     for (let i = 0; i < orderItems.length; i++) {
       if (orderItems[i].emotionName === hue.emotionName) {
-        console.log('yay')
         orderItems.splice(i, 1)
         break
       }
