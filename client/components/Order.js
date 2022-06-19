@@ -14,6 +14,7 @@ class Order extends React.Component {
   componentDidMount() {
     this.props.getHues()
   }
+  // WILL ADD ADD ITEM AND REMOVE ITEM HERE AS WELL, IN ORDER TO ADJUST THE INPUT QUANTITIES FROM THE CART COMPONENT
 
   // map through localStorage for all ids of hues, store ids in array
   // filter through all hues for items with ids included in array
