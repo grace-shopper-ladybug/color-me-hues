@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Order, User, Hue} = require('../db/models')
+const {Order, User, Hue, HueOrder} = require('../db/models')
 
 module.exports = router
 
@@ -35,19 +35,29 @@ router.get('/:userId/:hueId', async (req, res, next) => {
   }
 })
 
-// POST /api/orders/:userId/:productId
+// POST /api/orders/:userId/:hueId
 // add to cart button for logged-in users
-router.post('/:userId/:hueId', async (req, res, next) => {
+router.post('/:hueId', async (req, res, next) => {
   try {
-    // Check that there's an open order (cart) associated with the user
-    const [order] = await Order.findOrCreate({
-      where: {userId: req.params.userId, isOrder: false},
-      include: User
+    let hue = await Hue.findByPk(req.params.hueId)
+
+    let [order] = await Order.findOrCreate({
+      where: {userId: req.user.id, isOrder: false},
+      include: Hue
     })
 
-    // create relationship between open order (cart) and hue
-    const hue = await Hue.findByPk(req.params.hueId)
-    await order.addHue(hue)
+    if (await order.hasHue(hue.id)) {
+      const hueOrder = await HueOrder.findOne({
+        where: {orderId: order.id, hueId: hue.id}
+      })
+      let newQty = hueOrder.quantity + 1
+      await hueOrder.update({quantity: newQty, subTotal: hue.price * newQty})
+      await hueOrder.save()
+    } else {
+      await order.addHue(hue.id, {through: {quantity: 1, subTotal: hue.price}})
+    }
+    await order.reload()
+    // await order.calculateTotal()
     res.json(order)
   } catch (err) {
     next(err)
