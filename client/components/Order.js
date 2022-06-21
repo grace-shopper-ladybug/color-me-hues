@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {getHues} from '../store/allHues'
 import Table from 'react-bootstrap/Table'
 import {Button, Col, Container, InputGroup} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 
 class Order extends React.Component {
   constructor() {
@@ -184,7 +185,9 @@ class Order extends React.Component {
           <h3 className="pr-5">
             Subtotal ({huesInCart.length} items): ${total}
           </h3>
-          <Button variant="outline-success">Checkout</Button>
+          <Link to="/checkout">
+            <Button variant="outline-success">Checkout</Button>
+          </Link>
         </div>
       </Container>
     )
