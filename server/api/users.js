@@ -4,6 +4,7 @@ const {requireToken} = require('./gateKeepingMiddleware')
 module.exports = router
 
 // GET /api/users
+// ----------- requireToken stops any non-admin users from viewing routes without proper token -------
 router.get('/', requireToken, async (req, res, next) => {
   try {
     const users = await User.findAll({
@@ -19,7 +20,7 @@ router.get('/', requireToken, async (req, res, next) => {
 })
 
 // GET /api/user/:id
-router.get('/:userId', async (req, res, next) => {
+router.get('/:userId', requireToken, async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.userId)
     // include orders/reviews here later
