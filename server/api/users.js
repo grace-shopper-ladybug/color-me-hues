@@ -1,7 +1,6 @@
 const router = require('express').Router()
 const {User} = require('../db/models')
 const {requireToken} = require('./gateKeepingMiddleware')
-module.exports = router
 
 // GET /api/users
 // ----------- requireToken stops any non-admin users from viewing routes without proper token -------
@@ -29,3 +28,7 @@ router.get('/:userId', requireToken, async (req, res, next) => {
     next(err)
   }
 })
+
+//
+
+module.exports = router
