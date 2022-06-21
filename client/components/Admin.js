@@ -17,7 +17,7 @@ class Admin extends React.Component {
     return (
       <div>
         <h1>Admins Only</h1>
-        User Account Details
+        <h4>User Account Details</h4>
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -39,24 +39,14 @@ class Admin extends React.Component {
             })}
           </tbody>
         </Table>
-        <p>
-          The edit button should take you to a separate page where you can fill
-          out fields to update individual product listings. The delete button
-          could optionally show a confirmation message before deleting the
-          product.
-        </p>
-        <div>
+
+        {/* <div>
           <Button>Edit Hues</Button>
-        </div>
+        </div> */}
         <div>
           <CreateHue />
         </div>
-        <p>
-          All relevant POST, PUT, and DELETE routes, along with this /admin page
-          should be restricted to admins. Even without access to this page,
-          non-admins should not be able to send these types of requests using an
-          app like Postman or Insomnia.
-        </p>
+        <h4>List of Hues</h4>
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -70,7 +60,7 @@ class Admin extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.hues?.map(hue => {
+            {this.props.hues.map(hue => {
               return (
                 <tr key={hue.id}>
                   <td>{hue.id}</td>

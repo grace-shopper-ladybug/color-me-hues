@@ -39,18 +39,18 @@ class CreateHue extends React.Component {
         <h4>Create Hue</h4>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formName">
-            <Form.Label>Name</Form.Label>
+            <Form.Label>Hue Name</Form.Label>
             <Form.Control
               type="text"
               name="emotionName"
-              placeholder="Enter a name"
+              placeholder="Enter a hue name"
               onChange={handleChange}
               value={emotionName}
             />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formDescription">
-            <Form.Label>Description</Form.Label>
+            <Form.Label>Emotion Description</Form.Label>
             <Form.Control
               type="text"
               name="description"
