@@ -58,15 +58,6 @@ class Routes extends Component {
   }
 }
 
-const isAdmin = (req, res, next) => {
-  if (!req.user.admin) {
-    const err = new Error(`Admin permissions required`)
-    err.status = 401
-    return next(err)
-  }
-  next()
-}
-
 /**
  * CONTAINER
  */

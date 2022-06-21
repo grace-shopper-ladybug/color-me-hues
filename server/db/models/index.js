@@ -1,6 +1,7 @@
 const User = require('./user')
 const Hue = require('./hue')
 const Order = require('./order')
+const HueOrder = require('./hueOrder')
 
 /**
  * If we had any associations to make, this would be a great place to put them!
@@ -23,8 +24,8 @@ const Order = require('./order')
 Order.belongsTo(User)
 User.hasMany(Order)
 
-Order.hasMany(Hue)
-Hue.belongsToMany(Order, {through: 'order-hues'})
+Order.belongsToMany(Hue, {through: 'hueOrder'})
+Hue.belongsToMany(Order, {through: 'hueOrder'})
 
 // For later: handling favorites and admin control
 // User.HasMany(Hue);
@@ -33,5 +34,6 @@ Hue.belongsToMany(Order, {through: 'order-hues'})
 module.exports = {
   User,
   Hue,
-  Order
+  Order,
+  HueOrder
 }
