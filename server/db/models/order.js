@@ -20,7 +20,8 @@ const Order = db.define('order', {
     type: Sequelize.STRING,
     validate: {
       isEmail: true
-    }
+    },
+    allowNull: false
   }
 })
 

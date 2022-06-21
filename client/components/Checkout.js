@@ -17,6 +17,19 @@ class Checkout extends React.Component {
       customerName: '',
       customerEmail: ''
     }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(evt) {
+    this.setState({
+      [evt.target.name]: evt.target.value
+    })
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+    console.log(e)
   }
 
   render() {
@@ -25,21 +38,36 @@ class Checkout extends React.Component {
         <Card>
           <Col>
             <Form>
-              <Form.Group className="mb-3" controlId="FullName">
+              <Form.Group
+                className="mb-3"
+                controlId="customerName"
+                onChange={this.handleChange}
+              >
                 <Form.Label>Full Name</Form.Label>
-                <Form.Control type="FullName" placeholder="Full Name" />
+                <Form.Control type="customerName" placeholder="Full Name" />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Group
+                className="mb-3"
+                controlId="customerEmail"
+                onChange={this.handleChange}
+              >
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Control type="customerEmail" placeholder="Enter email" />
               </Form.Group>
 
               {/* <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Password" />
             </Form.Group> */}
-              <Button variant="primary" type="submit">
-                Submit
+              <Button
+                variant="outline-success"
+                type="submit"
+                onClick={() => {
+                  event.preventDefault()
+                  console.log(this.state)
+                }}
+              >
+                Checkout
               </Button>
             </Form>
           </Col>
