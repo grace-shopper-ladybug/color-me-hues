@@ -8,7 +8,7 @@ const Hue = require('./hue')
 // only for logged in users - guests use Local Storage
 
 const Order = db.define('order', {
-  subTotal: {
+  total: {
     type: Sequelize.INTEGER,
     defaultValue: 0
   },
