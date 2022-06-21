@@ -16,7 +16,7 @@ class Admin extends React.Component {
       <div>
         <h1>Admins Only</h1>
         <CreateHue />
-        <p>
+        {/* <p>
           The edit button should take you to a separate page where you can fill
           out fields to update individual product listings. The delete button
           could optionally show a confirmation message before deleting the
@@ -27,7 +27,7 @@ class Admin extends React.Component {
           should be restricted to admins. Even without access to this page,
           non-admins should not be able to send these types of requests using an
           app like Postman or Insomnia.
-        </p>
+        </p> */}
 
         <Table striped bordered hover>
           <thead>
