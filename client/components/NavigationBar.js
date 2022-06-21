@@ -32,11 +32,11 @@ const NavigationBar = ({handleClick, isLoggedIn, isAdmin}) => (
             title="Filter By"
             menuVariant="light"
           >
-            <NavDropdown.Item href="/">Orange</NavDropdown.Item>
             <NavDropdown.Item href="/">Red</NavDropdown.Item>
-            <NavDropdown.Item href="/">Blue</NavDropdown.Item>
-            <NavDropdown.Item href="/">Green</NavDropdown.Item>
+            <NavDropdown.Item href="/">Orange</NavDropdown.Item>
             <NavDropdown.Item href="/">Yellow</NavDropdown.Item>
+            <NavDropdown.Item href="/">Green</NavDropdown.Item>
+            <NavDropdown.Item href="/">Blue</NavDropdown.Item>
             <NavDropdown.Item href="/">Purple</NavDropdown.Item>
           </NavDropdown>
         </Nav>

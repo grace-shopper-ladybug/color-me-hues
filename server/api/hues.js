@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const {Hue} = require('../db/models')
+const {isAdmin} = require('./gatekeepingMiddleWare')
 
 module.exports = router
 
@@ -26,7 +27,7 @@ router.get('/:id', async (req, res, next) => {
 
 // ADMIN ONLY ROUTES
 // POST /api/hues/
-router.post('/', async (req, res, next) => {
+router.post('/', isAdmin, async (req, res, next) => {
   try {
     res.status(201).send(await Hue.create(req.body))
   } catch (err) {
@@ -35,7 +36,7 @@ router.post('/', async (req, res, next) => {
 })
 
 // DELETE /api/hues/:id
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', isAdmin, async (req, res, next) => {
   try {
     const hue = await Hue.findByPk(req.params.id)
     await hue.destroy()
@@ -46,7 +47,7 @@ router.delete('/:id', async (req, res, next) => {
 })
 
 // PUT /api/hues/:id
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', isAdmin, async (req, res, next) => {
   try {
     const hue = await Hue.findByPk(req.params.id)
     res.send(await hue.update(req.body))
