@@ -1,5 +1,3 @@
-'use strict'
-
 const db = require('../server/db')
 const {User, Hue} = require('../server/db/models')
 
