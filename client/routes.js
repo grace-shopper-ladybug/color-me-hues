@@ -11,8 +11,7 @@ import {
   SingleHue,
   Admin,
   EditHue,
-  Order,
-  Homepage
+  Order
 } from './components'
 
 /**
