@@ -1,10 +1,10 @@
 const router = require('express').Router()
 const {User} = require('../db/models')
-const requireAdminAccess = require('./gatekeepingMiddleWare')
+const {isAdmin} = require('./gatekeepingMiddleWare')
 module.exports = router
 
 // GET /api/users
-router.get('/', requireAdminAccess, async (req, res, next) => {
+router.get('/', isAdmin, async (req, res, next) => {
   try {
     const users = await User.findAll({
       // explicitly select only the id and email fields - even though
@@ -19,7 +19,7 @@ router.get('/', requireAdminAccess, async (req, res, next) => {
 })
 
 // GET /api/users/:id
-router.get('/:userId', async (req, res, next) => {
+router.get('/:userId', isAdmin, async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.userId)
     // include orders/reviews here later

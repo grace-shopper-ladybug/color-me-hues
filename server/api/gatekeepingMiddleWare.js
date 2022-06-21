@@ -2,23 +2,18 @@
 
 const {User} = require('../db/models')
 
-const requireAdminAccess = async (req, res, next) => {
-  try {
-    // const token = req.headers.authorization
-    // console.log(User, "User")
-    console.log(req.user.admin, 'should be a boolean for admin')
-    // ------ check to see if user is true for admin --------
-    // const user = await User.verifyAdmin(req.user.admin)
-    if (req.user.admin === true) {
-      res.next()
-    } else {
-      console.log('error')
-    }
-  } catch (err) {
-    next(err)
+const isAdmin = (req, res, next) => {
+  console.log(req.user.admin, 'should be a boolean for admin')
+  // ------ check to see if user is true for admin --------
+  // const user = await User.verifyAdmin(req.user.admin)
+  if (!req.user.admin) {
+    return res.status(403).send("You ain't admin")
+  } else {
+    // ------------ if user IS an admin ---------------
+    next()
   }
 }
 
 module.exports = {
-  requireAdminAccess
+  isAdmin
 }
