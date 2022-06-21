@@ -5,8 +5,10 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
 import Card from 'react-bootstrap/Card'
+import Toast from 'react-bootstrap/Toast'
+import Row from 'react-bootstrap/Row'
+import CheckoutSuccess from './Checkout-Success'
 
 class Checkout extends React.Component {
   constructor() {
@@ -15,10 +17,12 @@ class Checkout extends React.Component {
     // I wanna change it so that if the user is logged in, their info will already be in here once the component mounts
     this.state = {
       customerName: '',
-      customerEmail: ''
+      customerEmail: '',
+      showA: true
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.toggleShowA = this.toggleShowA.bind(this)
   }
 
   handleChange(evt) {
@@ -32,43 +36,38 @@ class Checkout extends React.Component {
     console.log(e)
   }
 
+  toggleShowA() {
+    this.setState(prevState => ({showA: !prevState.showA}))
+  }
+
   render() {
+    const customerName = this.state.customerName
+    const customerEmail = this.state.customerEmail
+
     return (
       <Container className="mt-5">
         <Card>
           <Col>
-            <Form>
-              <Form.Group
-                className="mb-3"
-                controlId="customerName"
-                onChange={this.handleChange}
-              >
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Group className="mb-3" controlId="customerName">
                 <Form.Label>Full Name</Form.Label>
-                <Form.Control type="customerName" placeholder="Full Name" />
+                <Form.Control
+                  name="customerName"
+                  value={customerName}
+                  onChange={this.handleChange}
+                  placeHolder="Full Name"
+                />
               </Form.Group>
-              <Form.Group
-                className="mb-3"
-                controlId="customerEmail"
-                onChange={this.handleChange}
-              >
+              <Form.Group className="mb-3" controlId="customerEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="customerEmail" placeholder="Enter email" />
+                <Form.Control
+                  name="customerEmail"
+                  placeholder="Enter email"
+                  value={customerEmail}
+                  onChange={this.handleChange}
+                />
               </Form.Group>
-
-              {/* <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
-            </Form.Group> */}
-              <Button
-                variant="outline-success"
-                type="submit"
-                onClick={() => {
-                  event.preventDefault()
-                  console.log(this.state)
-                }}
-              >
-                Checkout
-              </Button>
+              <CheckoutSuccess userInfo={this.state} />
             </Form>
           </Col>
         </Card>
@@ -77,4 +76,14 @@ class Checkout extends React.Component {
   }
 }
 
-export default Checkout
+// const mapStateToProps = ()
+
+const mapDispatchToProps = dispatch => {
+  return {
+    checkoutOrder: order => {
+      dispatch(checkoutOrder(order))
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Checkout)
