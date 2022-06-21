@@ -56,16 +56,9 @@ router.post('/:hueId', async (req, res, next) => {
     } else {
       await order.addHue(hue.id, {through: {quantity: 1, subTotal: hue.price}})
     }
-    await order.reload()
-    // await order.calculateTotal()
+    await order.calculateTotal()
     res.json(order)
   } catch (err) {
     next(err)
   }
 })
-
-//   if (isLoggedIn)
-// clicking add to cart button will call thunk that calls post route.
-// post route uses magic method to set up relationship between Hue and Cart
-// relationship should be between order = Order.FindOrCreate(...) and hue = Hue.findByPk(hueId)
-// order.setHue(hue) or order.addHue(hue)
