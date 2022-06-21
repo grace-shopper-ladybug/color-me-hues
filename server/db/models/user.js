@@ -79,6 +79,19 @@ User.encryptPassword = function(plainText, salt) {
     .digest('hex')
 }
 
+// ------- does this create token?? ----------------
+
+User.prototype.generateToken = async function() {
+  try {
+    const token = await jwt.sign({id: this.id}, process.env.JWT)
+    return {token}
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+// ----------
+
 User.findByToken = async function(token) {
   try {
     const {id} = await jwt.verify(token, process.env.JWT)
