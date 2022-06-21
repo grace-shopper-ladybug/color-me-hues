@@ -62,3 +62,6 @@ router.post('/:hueId', async (req, res, next) => {
     next(err)
   }
 })
+
+// POST /api/orders
+router.post('/:hueId')

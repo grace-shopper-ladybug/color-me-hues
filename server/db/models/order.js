@@ -21,12 +21,6 @@ const Order = db.define('order', {
     validate: {
       isEmail: true
     }
-  },
-  customerNumber: {
-    type: Sequelize.STRING
-  },
-  customerAddress: {
-    type: Sequelize.STRING
   }
 })
 

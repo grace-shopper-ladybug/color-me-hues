@@ -9,7 +9,7 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 
-const NavigationBar = ({handleClick, isLoggedIn}) => (
+const NavigationBar = ({handleClick, isLoggedIn, isAdmin}) => (
   <Navbar bg="light" expand="lg">
     <Container fluid>
       <Navbar.Brand href="/">
@@ -23,7 +23,8 @@ const NavigationBar = ({handleClick, isLoggedIn}) => (
           navbarScroll
         >
           <Nav.Link href="/">All Products</Nav.Link>
-          <Nav.Link href="/admin">Admin</Nav.Link>
+
+          {isAdmin ? <Nav.Link href="/admin">Admin</Nav.Link> : null}
         </Nav>
         <Nav>
           <NavDropdown
@@ -75,7 +76,8 @@ const NavigationBar = ({handleClick, isLoggedIn}) => (
  */
 const mapState = state => {
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    isAdmin: state.user.admin
   }
 }
 
