@@ -5,12 +5,14 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import singleUserReducer from './user'
 import huesReducer from './allHues'
 import singleHueReducer from './singleHue'
+import orderReducer from './order'
 import usersReducer from './allUsers'
 
 const reducer = combineReducers({
   user: singleUserReducer,
   hues: huesReducer,
   hue: singleHueReducer,
+  order: orderReducer
   users: usersReducer
 })
 const middleware = composeWithDevTools(

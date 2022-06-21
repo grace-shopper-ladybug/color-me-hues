@@ -62,3 +62,15 @@ router.post('/:hueId', async (req, res, next) => {
     next(err)
   }
 })
+
+// POST /api/orders for guest checkout
+router.post('/:hueId', async (req, res, next) => {
+  try {
+    // create an order instance with the customer name and email from the checkout page
+    let order = await Order.create({})
+
+    order.addHue()
+  } catch (err) {
+    next(err)
+  }
+})

@@ -11,7 +11,8 @@ import {
   SingleHue,
   Admin,
   EditHue,
-  Order
+  Order,
+  Checkout
 } from './components'
 
 /**
@@ -36,6 +37,7 @@ class Routes extends Component {
         <Route exact path="/signup" component={Signup} />
         {/* <Route exact path="/admin" component={Admin} /> */}
         <Route exact path="/cart" component={Order} />
+        <Route exact path="/checkout" component={Checkout} />
 
         {isLoggedIn && (
           <Switch>
