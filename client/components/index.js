@@ -6,7 +6,6 @@
 export {default as NavigationBar} from './NavigationBar'
 export {default as UserHome} from './user-home'
 export {Login, Signup} from './auth-form'
-export {default as Homepage} from './Homepage'
 export {default as Storefront} from './Storefront'
 export {default as SingleHue} from './SingleHue'
 export {default as Admin} from './Admin'
