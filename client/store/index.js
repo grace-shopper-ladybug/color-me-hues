@@ -12,7 +12,7 @@ const reducer = combineReducers({
   user: singleUserReducer,
   hues: huesReducer,
   hue: singleHueReducer,
-  order: orderReducer
+  order: orderReducer,
   users: usersReducer
 })
 const middleware = composeWithDevTools(
