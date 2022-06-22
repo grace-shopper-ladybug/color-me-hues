@@ -8,6 +8,7 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
+import FilterDropDown from './FilterDropDown'
 
 const NavigationBar = ({handleClick, isLoggedIn}) => (
   <Navbar bg="light" expand="lg">
@@ -25,21 +26,6 @@ const NavigationBar = ({handleClick, isLoggedIn}) => (
           <Nav.Link href="/">All Products</Nav.Link>
           <Nav.Link href="/admin">Admin</Nav.Link>
         </Nav>
-        <Nav>
-          <NavDropdown
-            id="nav-dropdown-dark-example"
-            title="Filter By"
-            menuVariant="light"
-          >
-            <NavDropdown.Item href="/">Red</NavDropdown.Item>
-            <NavDropdown.Item href="/">Orange</NavDropdown.Item>
-            <NavDropdown.Item href="/">Yellow</NavDropdown.Item>
-            <NavDropdown.Item href="/">Green</NavDropdown.Item>
-            <NavDropdown.Item href="/">Blue</NavDropdown.Item>
-            <NavDropdown.Item href="/">Purple</NavDropdown.Item>
-          </NavDropdown>
-        </Nav>
-        {/* Depending on whether the user is logged in or not, different links will show. ie here, I have it so that when the user is logged in, they can see a dropdown menu and access their account home page, the logout button, their orders, reviews, etc */}
         {isLoggedIn ? (
           <div>
             {/* The navbar will show these links after you log in */}

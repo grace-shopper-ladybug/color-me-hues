@@ -6,12 +6,14 @@ import singleUserReducer from './user'
 import huesReducer from './allHues'
 import singleHueReducer from './singleHue'
 import usersReducer from './allUsers'
+import selectedColorFamilyReducer from './colorFamily'
 
 const reducer = combineReducers({
   user: singleUserReducer,
   hues: huesReducer,
   hue: singleHueReducer,
-  users: usersReducer
+  users: usersReducer,
+  hueColorFamily: selectedColorFamilyReducer
 })
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))

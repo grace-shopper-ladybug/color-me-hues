@@ -1,27 +1,51 @@
-// /* eslint-disable complexity */
-// // ------------------ imports ------------------>
+import React from 'react'
+import {getHues} from '../store/allHues'
+import {connect} from 'react-redux'
+import {storeSelectedHue} from '../store/colorFamily'
 
-// import React, {useState} from 'react'
-// import {NavDropdown, Dropdown, Button, DropdownButton} from 'react-bootstrap'
+export class FilterDropDown extends React.Component {
+  constructor(props) {
+    super(props)
+    this.dropdownHandler = this.dropdownHandler.bind(this)
+  }
 
-// // ------------------ FilterDropDown component ------------------>
+  // ------------------ handlers ------------------>
+  dropdownHandler(event) {
+    this.props.storeSelectedHue(event.target.value)
+  }
 
-// class FilterDropDown extends React.Component() {
-//   // constructor(props) {
-//   //   super(props)
-//   // }
-//   // render() {
-//   //   return (
-//   //     <div>
-//   //       {' '}
-//   //       <DropdownButton id="dropdown-basic-button" title="Dropdown button">
-//   //         <Dropdown.Item href="#/blue">Action</Dropdown.Item>
-//   //         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-//   //         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-//   //       </DropdownButton>
-//   //     </div>
-//   //   )
-//   // }
-// }
+  // ------------------ render ------------------>
 
-// export default FilterDropDown
+  render() {
+    return (
+      <div className="hue-list">
+        <select onChange={this.dropdownHandler}>
+          <option value="all">All Hues</option>
+          <option value="warm">Warm</option>
+          <option value="cool">Cool</option>
+          <option value="neutral">Neutral</option>
+        </select>
+      </div>
+    )
+  }
+}
+// -------- mapReduxState -------->
+
+const mapReduxState = state => {
+  return {
+    hues: state.hues
+  }
+}
+
+// -------- mapDispatch -------->
+
+const mapDispatch = dispatch => {
+  return {
+    getHues: () => dispatch(getHues()),
+    storeSelectedHue: hueColorFamily =>
+      dispatch(storeSelectedHue(hueColorFamily))
+  }
+}
+
+// -------- export -------->
+export default connect(mapReduxState, mapDispatch)(FilterDropDown)

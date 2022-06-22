@@ -33,7 +33,7 @@ const Hue = db.define('hue', {
   hueColorFamily: {
     type: Sequelize.STRING,
     validate: {
-      isIn: [['orange', 'red', 'blue', 'green', 'yellow', 'purple']]
+      isIn: [['warm', 'cool', 'neutral']]
       // this can be changed, only assigned for general testing
     }
   },
