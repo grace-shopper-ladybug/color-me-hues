@@ -1,4 +1,4 @@
-import Axios from 'axios'
+import axios from 'axios'
 
 // action type constants
 
@@ -25,20 +25,34 @@ export const _checkoutOrder = order => ({
 
 // thunk creators
 
-export const getCart = orderId => {
+// export const getCart = orderId => {
+//   return async dispatch => {
+//     try {
+//       const {data: order} = await Axios.get(`/api/orders/${orderId}`)
+//       dispatch(_getCart(order))
+//     } catch (err) {
+//       console.log(err)
+//     }
+//   }
+// }
+
+export const getCart = () => {
   return async dispatch => {
-    try {
-      const {data: order} = await Axios.get(`/api/orders/${orderId}`)
-      dispatch(_getCart(order))
-    } catch (err) {
-      console.log(err)
-    }
+    const {data: order} = await axios.get('/api/orders/cart')
+    dispatch(_getCart(order))
+  }
+}
+
+export const addToCart = hue => {
+  return async dispatch => {
+    const {data: order} = await axios.post(`/api/orders/${hue.id}`)
+    dispatch(_addToCart(order))
   }
 }
 
 export const checkoutOrder = order => {
   return async dispatch => {
-    const {data: ordered} = await Axios.post('/api/orders', order)
+    const {data: ordered} = await axios.post('/api/orders', order)
     dispatch(_checkoutOrder(ordered))
   }
 }
@@ -48,9 +62,10 @@ export default function orderReducer(state = [], action) {
   switch (action.type) {
     case GET_CART:
       return action.cart
+    case ADD_TO_CART:
+      return action.cart
     case CHECKOUT_ORDER:
       return [...state, action.order]
-
     default:
       return state
   }

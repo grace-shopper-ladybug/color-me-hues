@@ -55,7 +55,7 @@ class Checkout extends React.Component {
                   name="customerName"
                   value={customerName}
                   onChange={this.handleChange}
-                  placeHolder="Full Name"
+                  placeholder="Full Name"
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="customerEmail">
