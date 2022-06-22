@@ -61,6 +61,7 @@ class Checkout extends React.Component {
                 customerName={customerName}
                 customerEmail={customerEmail}
                 total={this.props.total}
+                isOrder="true"
               />
             </Form>
           </Col>
