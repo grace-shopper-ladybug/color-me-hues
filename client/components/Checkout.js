@@ -8,8 +8,8 @@ import Card from 'react-bootstrap/Card'
 import CheckoutSuccess from './Checkout-Success'
 
 class Checkout extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     // I wanna change it so that if the user is logged in, their info will already be in here once the component mounts
     this.state = {
@@ -28,7 +28,6 @@ class Checkout extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log(e)
   }
 
   render() {
@@ -58,7 +57,11 @@ class Checkout extends React.Component {
                   onChange={this.handleChange}
                 />
               </Form.Group>
-              <CheckoutSuccess userInfo={this.state} />
+              <CheckoutSuccess
+                customerName={customerName}
+                customerEmail={customerEmail}
+                total={this.props.total}
+              />
             </Form>
           </Col>
         </Card>

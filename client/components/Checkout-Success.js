@@ -28,8 +28,8 @@ function CheckoutSuccess(props) {
           <Modal.Title>Thanks!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Thanks for your order, {props.userInfo.customerName}! Order
-          confirmation has been sent to {props.userInfo.customerEmail}.
+          Thanks for your order, {props.customerName}! Order confirmation has
+          been sent to {props.customerEmail}.
         </Modal.Body>
         <Modal.Footer>
           <Button variant="outline-danger" onClick={handleClose}>
@@ -39,7 +39,7 @@ function CheckoutSuccess(props) {
             <Button
               variant="outline-success"
               onClick={() => {
-                props.checkoutOrder(props.userInfo)
+                props.checkoutOrder(props)
                 window.localStorage.clear()
               }}
             >
