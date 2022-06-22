@@ -1,13 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {checkoutOrder} from '../store/order'
-import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
-import Toast from 'react-bootstrap/Toast'
-import Row from 'react-bootstrap/Row'
 import CheckoutSuccess from './Checkout-Success'
 
 class Checkout extends React.Component {

@@ -24,10 +24,10 @@ router.post('/', async (req, res, next) => {
 })
 
 // GET /api/orders/:userId
-router.get('/:userId/:hueId', async (req, res, next) => {
+router.get('/:userId', async (req, res, next) => {
   try {
     const orders = await Order.findAll({
-      where: {userId: req.params.userId}
+      where: {userId: req.user.id}
     })
     res.json(orders)
   } catch (err) {
