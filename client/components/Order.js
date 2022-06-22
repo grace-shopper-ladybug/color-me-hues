@@ -17,7 +17,9 @@ class Order extends React.Component {
 
   componentDidMount() {
     this.props.getHues()
-    this.props.getCart()
+    if (this.props.isLoggedIn) {
+      this.props.getCart()
+    }
     this.props.loadUser()
   }
 
