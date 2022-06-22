@@ -84,7 +84,10 @@ class SingleHue extends React.Component {
                           className="text-uppercase mr-2 px-4"
                           onClick={() =>
                             // isLoggedIn ? insert logged in function here, :
-                            this.guestAddToCart(hue.id, hue)
+                            {
+                              this.guestAddToCart(hue.id, hue)
+                              alert('added to cart! :)')
+                            }
                           }
                         >
                           Add to cart
