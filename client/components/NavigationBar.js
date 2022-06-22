@@ -12,8 +12,14 @@ const NavigationBar = ({handleClick, isLoggedIn, isAdmin}) => (
   <Navbar bg="light" expand="lg">
     <Container fluid>
       <Navbar.Brand href="/">
-        <img src="/images/icon.png" width="50" height="50" alt="" />
+        <img
+          src="/images/icon.png"
+          width="50"
+          height="50"
+          alt="House of Hues"
+        />
       </Navbar.Brand>
+      {/* <Navbar.Brand>House of Hues</Navbar.Brand> */}
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
         <Nav

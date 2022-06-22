@@ -1,16 +1,5 @@
-h2 {
-  top: 1.5rem;
-  font-family: 'Tapestry', cursive;
-  color: black;
-  font-size: 50px;
-}
-
 body {
   display: flex;
-  left: 1.5rem;
-  right: 1.5rem;
-  padding: 2rem;
-
   flex-direction: column;
   justify-content: center;
   align-content: center;
@@ -102,5 +91,4 @@ form div {
 
 #hue-list {
   background-color: #fff;
-  font-family: 'Tapestry', cursive;
 }

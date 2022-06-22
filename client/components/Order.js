@@ -4,7 +4,6 @@ import {getHues} from '../store/allHues'
 import {getCart} from '../store/order'
 import Table from 'react-bootstrap/Table'
 import {Button, Col, Container, InputGroup} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
 import Checkout from './Checkout'
 import {me} from '../store'
 
@@ -84,6 +83,7 @@ class Order extends React.Component {
     return totalInPennies / 100
   }
 
+  // eslint-disable-next-line complexity
   render() {
     const {isLoggedIn} = this.props
     const cart = this.props.cart || {}
