@@ -6,12 +6,10 @@ import {checkoutOrder} from '../store/order'
 import {connect} from 'react-redux'
 
 function CheckoutSuccess(props) {
-  console.log(props)
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
-  console.log(props)
 
   return (
     <>

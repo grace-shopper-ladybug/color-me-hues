@@ -34,8 +34,6 @@ class Checkout extends React.Component {
     const customerName = this.state.customerName
     const customerEmail = this.state.customerEmail
 
-    console.log(this.state)
-
     return (
       <Container className="mt-5">
         <Card>
