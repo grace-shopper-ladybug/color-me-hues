@@ -34,6 +34,8 @@ class Checkout extends React.Component {
     const customerName = this.state.customerName
     const customerEmail = this.state.customerEmail
 
+    console.log(this.state)
+
     return (
       <Container className="mt-5">
         <Card>
@@ -45,7 +47,7 @@ class Checkout extends React.Component {
                   name="customerName"
                   value={customerName}
                   onChange={this.handleChange}
-                  placeHolder="Full Name"
+                  placeholder="Full Name"
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="customerEmail">
@@ -61,6 +63,7 @@ class Checkout extends React.Component {
                 customerName={customerName}
                 customerEmail={customerEmail}
                 total={this.props.total}
+                huesInCart={this.props.huesInCart}
                 isOrder="true"
               />
             </Form>

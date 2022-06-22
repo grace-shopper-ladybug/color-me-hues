@@ -18,6 +18,13 @@ router.post('/', async (req, res, next) => {
   try {
     // create an order instance with the customer name and email from the checkout page
     const newOrder = await Order.create(req.body)
+
+    for (let i = 0; i < req.body.huesInCart.length; i++) {
+      let hue = await Hue.findByPk(req.body.huesInCart[i])
+
+      newOrder.addHue(hue)
+    }
+
     res.json(newOrder)
   } catch (err) {
     next(err)
@@ -59,18 +66,6 @@ router.post('/:hueId', async (req, res, next) => {
     }
     await order.calculateTotal()
     res.json(order)
-  } catch (err) {
-    next(err)
-  }
-})
-
-// POST /api/orders for guest checkout
-router.post('/:orderId/:hueId', async (req, res, next) => {
-  try {
-    let order = await Order.findByPk(req.params.orderId)
-    let hue = await Hue.findByPk(req.params.hueId)
-
-    await order.addHue(hue)
   } catch (err) {
     next(err)
   }

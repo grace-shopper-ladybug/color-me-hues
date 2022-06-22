@@ -11,6 +11,7 @@ function CheckoutSuccess(props) {
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
+  console.log(props)
 
   return (
     <>
@@ -40,6 +41,7 @@ function CheckoutSuccess(props) {
               variant="outline-success"
               onClick={() => {
                 props.checkoutOrder(props)
+
                 window.localStorage.clear()
               }}
             >
