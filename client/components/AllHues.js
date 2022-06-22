@@ -62,7 +62,7 @@ export class AllHues extends React.Component {
                       <Card.Title>{hue.emotionName}</Card.Title>
                       <Card.Text>${hue.price / 100}</Card.Text>
                       <Link to={`/hues/${hue.id}`}>
-                        <Button variant="outline-secondary">Buy</Button>
+                        <Button variant="outline-secondary">Details</Button>
                       </Link>
                     </Card.Body>
                   </Card>
