@@ -6,6 +6,7 @@ const GET_ALL_ORDERS = 'GET_ALL_ORDERS'
 const GET_CART = 'GET_CART'
 const ADD_TO_CART = 'ADD_TO_CART'
 const CHECKOUT_ORDER = 'CHECKOUT_ORDER'
+const SET_HUE_TO_ORDER = 'SET_HUE_TO_ORDER'
 
 // action creators
 
@@ -27,6 +28,11 @@ export const _addToCart = cart => ({
 export const _checkoutOrder = order => ({
   type: CHECKOUT_ORDER,
   order
+})
+
+export const _setHueToOrder = hue => ({
+  type: SET_HUE_TO_ORDER,
+  hue
 })
 
 // thunk creators
@@ -60,6 +66,17 @@ export const checkoutOrder = order => {
   }
 }
 
+export const setHueToOrder = (orderId, hueId) => {
+  return async dispatch => {
+    try {
+      const {data} = await Axios.post(`/api/orders/${orderId}/${hueId}`)
+      dispatch(_setHueToOrder(data))
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
+
 // reducers
 export default function orderReducer(state = [], action) {
   switch (action.type) {
@@ -69,6 +86,8 @@ export default function orderReducer(state = [], action) {
       return action.cart
     case CHECKOUT_ORDER:
       return [...state, action.order]
+    case SET_HUE_TO_ORDER:
+      return [...state, action.hue]
 
     default:
       return state

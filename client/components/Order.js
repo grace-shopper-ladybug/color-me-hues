@@ -186,7 +186,7 @@ class Order extends React.Component {
           <h3 className="pr-5">
             Subtotal ({huesInCart.length} items): ${total}
           </h3>
-          <Checkout total={total} />
+          <Checkout total={total} huesInCart={huesInCart} />
         </Container>
       </Container>
     )
