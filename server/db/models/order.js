@@ -2,9 +2,7 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 const HueOrder = require('./hueOrder')
 
-// --------------- cart model --------------->
-
-// only for logged in users - guests use Local Storage
+// --------------- order model --------------->
 
 const Order = db.define('order', {
   total: {
@@ -14,6 +12,16 @@ const Order = db.define('order', {
   isOrder: {
     type: Sequelize.BOOLEAN,
     defaultValue: false
+  },
+  customerName: {
+    type: Sequelize.STRING
+  },
+  customerEmail: {
+    type: Sequelize.STRING,
+    validate: {
+      isEmail: true
+    },
+    allowNull: false
   }
 })
 
@@ -27,8 +35,6 @@ Order.prototype.calculateTotal = async function() {
   this.total = hueOrders.reduce((acc, hue) => {
     return acc + hue.subTotal
   }, 0)
-
-  this.save()
 }
 
 module.exports = Order

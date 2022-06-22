@@ -11,7 +11,9 @@ import {
   SingleHue,
   Admin,
   EditHue,
-  Order
+  Order,
+  Checkout,
+  Orders
 } from './components'
 
 /**
@@ -34,22 +36,31 @@ class Routes extends Component {
         <Route path="/hues/:hueId/edit" component={EditHue} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
-        <Route exact path="/admin" component={Admin} />
         <Route exact path="/cart" component={Order} />
+        <Route exact path="/checkout" component={Checkout} />
 
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            <Route path="/home" component={UserHome} />
+            <Route exact path="/home" component={UserHome} />
+
+            {isAdmin ? (
+              <Switch>
+                {/* Routes placed here are only available for admins */}
+                <Route exact path="/admin" component={Admin} />
+                <Route exact path="/orders" component={Orders} />
+              </Switch>
+            ) : (
+              <Switch>
+                <Route
+                  exact
+                  path="/admin"
+                  render={() => <div>Error: Not an admin</div>}
+                />
+              </Switch>
+            )}
           </Switch>
         )}
-
-        {/* {isAdmin && (
-          <Switch>
-            Routes placed here are only available for admins
-            <Route path="/admin" component={Admin} />
-          </Switch>
-        )} */}
 
         {/* Displays our Login component as a fallback */}
         <Route component={Login} />

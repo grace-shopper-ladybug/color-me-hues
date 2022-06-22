@@ -5,6 +5,7 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import singleUserReducer from './user'
 import huesReducer from './allHues'
 import singleHueReducer from './singleHue'
+import orderReducer from './order'
 import usersReducer from './allUsers'
 import selectedColorFamilyReducer from './colorFamily'
 
@@ -13,7 +14,8 @@ const reducer = combineReducers({
   hues: huesReducer,
   hue: singleHueReducer,
   users: usersReducer,
-  hueColorFamily: selectedColorFamilyReducer
+  hueColorFamily: selectedColorFamilyReducer,
+  order: orderReducer
 })
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
