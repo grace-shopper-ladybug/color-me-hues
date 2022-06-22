@@ -108,11 +108,11 @@ async function seed() {
     }),
     Hue.create({
       emotionName: 'Vemödalen',
-      emotionHue: '#ffcdb2',
+      emotionHue: '#b02e4a',
       image: `/images/squared/vemodalen.png`,
       description: 'the fear that originality is no longer possible.',
       shortDescription: 'the fear that originality is no longer possible.',
-      hueColorFamily: 'warm',
+      hueColorFamily: 'neutral',
       quantity: 5,
       price: 3000
     }),

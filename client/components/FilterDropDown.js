@@ -29,6 +29,7 @@ export class FilterDropDown extends React.Component {
     )
   }
 }
+
 // -------- mapReduxState -------->
 
 const mapReduxState = state => {
