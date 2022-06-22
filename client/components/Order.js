@@ -192,7 +192,7 @@ class Order extends React.Component {
             </h3>
           )}
 
-          <Checkout />
+          <Checkout total={total} huesInCart={huesInCart} />
         </Container>
       </Container>
     )

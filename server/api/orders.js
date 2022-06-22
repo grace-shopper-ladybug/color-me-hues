@@ -17,19 +17,6 @@ router.get('/', isAdmin, async (req, res, next) => {
   }
 })
 
-// GET /api/orders/:userId
-// Get all orders associated with a user
-// router.get('/:userId', isAdmin, async (req, res, next) => {
-//   try {
-//     const orders = await Order.findAll({
-//       where: {userId: req.params.userId}
-//     })
-//     res.json(orders)
-//   } catch (err) {
-//     next(err)
-//   }
-// })
-
 // ------- USER -------
 // GET /api/orders/cart
 // Get cart for logged-in users
@@ -47,6 +34,17 @@ router.get('/cart', async (req, res, next) => {
     next(err)
   }
 })
+
+// GET /api/orders/:userId
+// router.get('/:userId', async (req, res, next) => {
+//   try {
+//     const orders = await Order.findAll({
+//       where: {userId: req.user.id}
+//     })
+//   }
+//     catch(err) {
+//       next(err)  }
+//     })
 
 // POST /api/orders/:hueId
 // Add to cart for logged-in users
@@ -92,13 +90,19 @@ router.post('/:hueId', async (req, res, next) => {
 // })
 
 // ------- GUEST -------
-// POST /api/orders for guest checkout
-router.post('/:hueId', async (req, res, next) => {
+// POST /api/orders
+router.post('/', async (req, res, next) => {
   try {
     // create an order instance with the customer name and email from the checkout page
-    let order = await Order.create({})
+    const newOrder = await Order.create(req.body)
 
-    order.addHue()
+    for (let i = 0; i < req.body.huesInCart.length; i++) {
+      let hue = await Hue.findByPk(req.body.huesInCart[i])
+
+      newOrder.addHue(hue)
+    }
+
+    res.json(newOrder)
   } catch (err) {
     next(err)
   }

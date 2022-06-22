@@ -98,6 +98,7 @@ class SingleHue extends React.Component {
                           className="text-uppercase mr-2 px-4"
                           onClick={() => {
                             this.handleAddToCart(hue)
+                            alert('added to cart! :)')
                           }}
                         >
                           Add to cart

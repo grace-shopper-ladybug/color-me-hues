@@ -12,7 +12,8 @@ import {
   Admin,
   EditHue,
   Order,
-  Checkout
+  Checkout,
+  Orders
 } from './components'
 
 /**
@@ -47,6 +48,7 @@ class Routes extends Component {
               <Switch>
                 {/* Routes placed here are only available for admins */}
                 <Route exact path="/admin" component={Admin} />
+                <Route exact path="/orders" component={Orders} />
               </Switch>
             ) : (
               <Switch>

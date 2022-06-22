@@ -1,28 +1,23 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {checkoutOrder} from '../store/order'
-import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
-import Toast from 'react-bootstrap/Toast'
-import Row from 'react-bootstrap/Row'
 import CheckoutSuccess from './Checkout-Success'
 
 class Checkout extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     // I wanna change it so that if the user is logged in, their info will already be in here once the component mounts
     this.state = {
       customerName: '',
-      customerEmail: '',
-      showA: true
+      customerEmail: ''
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleChange = this.handleChange.bind(this)
-    this.toggleShowA = this.toggleShowA.bind(this)
   }
 
   handleChange(evt) {
@@ -33,11 +28,6 @@ class Checkout extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log(e)
-  }
-
-  toggleShowA() {
-    this.setState(prevState => ({showA: !prevState.showA}))
   }
 
   render() {
@@ -67,7 +57,13 @@ class Checkout extends React.Component {
                   onChange={this.handleChange}
                 />
               </Form.Group>
-              <CheckoutSuccess userInfo={this.state} />
+              <CheckoutSuccess
+                customerName={customerName}
+                customerEmail={customerEmail}
+                total={this.props.total}
+                huesInCart={this.props.huesInCart}
+                isOrder="true"
+              />
             </Form>
           </Col>
         </Card>
@@ -75,8 +71,6 @@ class Checkout extends React.Component {
     )
   }
 }
-
-// const mapStateToProps = ()
 
 const mapDispatchToProps = dispatch => {
   return {
