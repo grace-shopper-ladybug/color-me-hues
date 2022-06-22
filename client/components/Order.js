@@ -85,7 +85,10 @@ class Order extends React.Component {
   }
 
   render() {
-    const {isLoggedIn, cart} = this.props
+    const {isLoggedIn} = this.props
+    const cart = this.props.cart || {}
+    // if cart has not rendered yet, set cart.hues array to empty array to avoid mapping issues
+
     if (!cart.id) {
       cart.hues = []
     }
@@ -193,7 +196,7 @@ class Order extends React.Component {
         </Table>
         <Container>
           {isLoggedIn ? (
-            <h3 className="pr-5">Total: ${cart.total / 100}</h3>
+            <h3 className="pr-5">Total: ${cart.total / 100 || 0}</h3>
           ) : (
             <h3 className="pr-5">
               Total ({huesInCart.length} items): ${total}

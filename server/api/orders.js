@@ -22,7 +22,7 @@ router.get('/', isAdmin, async (req, res, next) => {
 // Get cart for logged-in users
 router.get('/cart', async (req, res, next) => {
   try {
-    let order = await Order.findOne({
+    const order = await Order.findOne({
       where: {
         userId: req.user.id,
         isOrder: false
@@ -93,6 +93,17 @@ router.post('/:hueId', async (req, res, next) => {
 // POST /api/orders
 router.post('/', async (req, res, next) => {
   try {
+    if (req.user.id) {
+      const order = await Order.findOne({
+        where: {
+          userId: req.user.id,
+          isOrder: false
+        }
+      })
+      order.isOrder = true
+      await order.save()
+    }
+
     // create an order instance with the customer name and email from the checkout page
     const newOrder = await Order.create(req.body)
 
