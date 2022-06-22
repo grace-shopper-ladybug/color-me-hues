@@ -14,12 +14,10 @@ class Checkout extends React.Component {
     // I wanna change it so that if the user is logged in, their info will already be in here once the component mounts
     this.state = {
       customerName: '',
-      customerEmail: '',
-      showA: true
+      customerEmail: ''
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleChange = this.handleChange.bind(this)
-    this.toggleShowA = this.toggleShowA.bind(this)
   }
 
   handleChange(evt) {
@@ -31,10 +29,6 @@ class Checkout extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     console.log(e)
-  }
-
-  toggleShowA() {
-    this.setState(prevState => ({showA: !prevState.showA}))
   }
 
   render() {
@@ -72,8 +66,6 @@ class Checkout extends React.Component {
     )
   }
 }
-
-// const mapStateToProps = ()
 
 const mapDispatchToProps = dispatch => {
   return {
