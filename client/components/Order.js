@@ -17,10 +17,8 @@ class Order extends React.Component {
 
   componentDidMount() {
     this.props.getHues()
-    if (this.props.isLoggedIn) {
-      this.props.getCart()
-    }
     this.props.loadUser()
+    this.props.getCart()
   }
 
   addToCart(hueId, hue) {
@@ -87,8 +85,10 @@ class Order extends React.Component {
   }
 
   render() {
-    const {isLoggedIn} = this.props
-    const hues = this.props.hues
+    const {isLoggedIn, cart} = this.props
+    if (!cart.id) {
+      cart.hues = []
+    }
     const filteredHues = this.filterHues()
 
     // if logged in, huesInCart will equal something on the state, and if not logged in, we will take localstorage and set that equal to huesInCart
@@ -124,73 +124,79 @@ class Order extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {isLoggedIn ? (
-              <tr>
-                <td>testing</td>
-              </tr>
-            ) : (
-              filteredHues.map(hue => (
-                <tr key={hue.id}>
-                  <td>{hue.id}</td>
-                  <td>
-                    <img src={hue.image} />
-                  </td>
-                  <td>{hue.emotionName}</td>
-                  <td>${hue.price / 100}</td>
-                  <td>
-                    <Col className="lg-2">
-                      <InputGroup className="input-group">
-                        <span className="input-group-btn">
-                          <Button
-                            type="button"
-                            className="quantity-left-minus btn btn-danger btn-number"
-                            data-type="minus"
-                            data-field=""
-                            onClick={() => {
-                              this.removeFromCart(hue.id, hue)
-                              this.forceUpdate()
-                            }}
-                          >
-                            <i className="bi bi-dash"></i>
-                          </Button>
-                        </span>
-                        <input
-                          type="text"
-                          id="quantity"
-                          name="quantity"
-                          className="form-control input-number"
-                          value={huesHash[hue.id]}
-                          min="1"
-                          max={hue.quantity}
-                        />
-                        <span className="input-group-btn">
-                          <Button
-                            type="button"
-                            className="quantity-right-plus btn btn-success btn-number"
-                            data-type="plus"
-                            data-field=""
-                            onClick={() => {
-                              this.addToCart(hue.id, hue)
-                              this.forceUpdate()
-                            }}
-                          >
-                            <i className="bi bi-plus"></i>
-                          </Button>
-                        </span>
-                      </InputGroup>
-                    </Col>
-                  </td>
-                </tr>
-              ))
-            )}
+            {isLoggedIn
+              ? cart.hues.map(hue => (
+                  <tr key={hue.id}>
+                    <td>{hue.id}</td>
+                    <td>
+                      <img src={hue.image} />
+                    </td>
+                    <td>{hue.emotionName}</td>
+                    <td>${hue.price / 100}</td>
+                    <td></td>
+                  </tr>
+                ))
+              : filteredHues.map(hue => (
+                  <tr key={hue.id}>
+                    <td>{hue.id}</td>
+                    <td>
+                      <img src={hue.image} />
+                    </td>
+                    <td>{hue.emotionName}</td>
+                    <td>${hue.price / 100}</td>
+                    <td>
+                      <Col className="lg-2">
+                        <InputGroup className="input-group">
+                          <span className="input-group-btn">
+                            <Button
+                              type="button"
+                              className="quantity-left-minus btn btn-danger btn-number"
+                              data-type="minus"
+                              data-field=""
+                              onClick={() => {
+                                this.removeFromCart(hue.id, hue)
+                                this.forceUpdate()
+                              }}
+                            >
+                              <i className="bi bi-dash"></i>
+                            </Button>
+                          </span>
+                          <input
+                            type="text"
+                            id="quantity"
+                            name="quantity"
+                            className="form-control input-number"
+                            value={huesHash[hue.id]}
+                            min="1"
+                            max={hue.quantity}
+                          />
+                          <span className="input-group-btn">
+                            <Button
+                              type="button"
+                              className="quantity-right-plus btn btn-success btn-number"
+                              data-type="plus"
+                              data-field=""
+                              onClick={() => {
+                                this.addToCart(hue.id, hue)
+                                this.forceUpdate()
+                              }}
+                            >
+                              <i className="bi bi-plus"></i>
+                            </Button>
+                          </span>
+                        </InputGroup>
+                      </Col>
+                    </td>
+                  </tr>
+                ))}
           </tbody>
         </Table>
         <Container>
           {isLoggedIn ? (
-            <h3 className="pr-5">Subtotal test</h3>
+            <h3 className="pr-5">Total: ${cart.total / 100}</h3>
           ) : (
             <h3 className="pr-5">
-              Subtotal ({huesInCart.length} items): ${total}
+              Total ({huesInCart.length} items): ${total}
             </h3>
           )}
 
@@ -204,7 +210,7 @@ class Order extends React.Component {
 const mapStateToProps = state => {
   return {
     hues: state.hues,
-    order: state.order,
+    cart: state.order,
     isLoggedIn: !!state.user.id
   }
 }
