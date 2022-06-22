@@ -36,7 +36,6 @@ class Routes extends Component {
         <Route path="/hues/:hueId/edit" component={EditHue} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
-        {/* <Route exact path="/admin" component={Admin} /> */}
         <Route exact path="/cart" component={Order} />
         <Route exact path="/checkout" component={Checkout} />
 
@@ -44,15 +43,12 @@ class Routes extends Component {
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route exact path="/home" component={UserHome} />
-            <Route exact path="/orders" component={Orders} />
-            {/*
-            {isAdmin ? <Nav.Link href="/admin">Admin</Nav.Link> : null} */}
 
             {isAdmin ? (
               <Switch>
                 {/* Routes placed here are only available for admins */}
-
                 <Route exact path="/admin" component={Admin} />
+                <Route exact path="/orders" component={Orders} />
               </Switch>
             ) : (
               <Switch>

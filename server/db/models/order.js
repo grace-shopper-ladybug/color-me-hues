@@ -35,8 +35,6 @@ Order.prototype.calculateTotal = async function() {
   this.total = hueOrders.reduce((acc, hue) => {
     return acc + hue.subTotal
   }, 0)
-
-  this.save()
 }
 
 module.exports = Order

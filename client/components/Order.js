@@ -1,10 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {getHues} from '../store/allHues'
+import {getCart} from '../store/order'
 import Table from 'react-bootstrap/Table'
 import {Button, Col, Container, InputGroup} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import Checkout from './Checkout'
+import {me} from '../store'
 
 class Order extends React.Component {
   constructor() {
@@ -15,7 +17,8 @@ class Order extends React.Component {
 
   componentDidMount() {
     this.props.getHues()
-    this.filterHues()
+    this.props.getCart()
+    this.props.loadUser()
   }
 
   addToCart(hueId, hue) {
@@ -82,6 +85,7 @@ class Order extends React.Component {
   }
 
   render() {
+    const {isLoggedIn} = this.props
     const hues = this.props.hues
     const filteredHues = this.filterHues()
 
@@ -118,7 +122,11 @@ class Order extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {filteredHues ? (
+            {isLoggedIn ? (
+              <tr>
+                <td>testing</td>
+              </tr>
+            ) : (
               filteredHues.map(hue => (
                 <tr key={hue.id}>
                   <td>{hue.id}</td>
@@ -172,20 +180,18 @@ class Order extends React.Component {
                   </td>
                 </tr>
               ))
-            ) : (
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
             )}
           </tbody>
         </Table>
         <Container>
-          <h3 className="pr-5">
-            Subtotal ({huesInCart.length} items): ${total}
-          </h3>
+          {isLoggedIn ? (
+            <h3 className="pr-5">Subtotal test</h3>
+          ) : (
+            <h3 className="pr-5">
+              Subtotal ({huesInCart.length} items): ${total}
+            </h3>
+          )}
+
           <Checkout total={total} huesInCart={huesInCart} />
         </Container>
       </Container>
@@ -195,12 +201,16 @@ class Order extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    hues: state.hues
+    hues: state.hues,
+    order: state.order,
+    isLoggedIn: !!state.user.id
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  getHues: () => dispatch(getHues())
+  getHues: () => dispatch(getHues()),
+  getCart: () => dispatch(getCart()),
+  loadUser: () => dispatch(me())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Order)

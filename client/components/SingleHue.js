@@ -7,10 +7,24 @@ import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
+import {addToCart} from '../store/order'
+import {me} from '../store'
 
 class SingleHue extends React.Component {
+  constructor() {
+    super()
+    this.handleAddToCart = this.handleAddToCart.bind(this)
+  }
   componentDidMount() {
     this.props.getHue(this.props.match.params.hueId)
+  }
+
+  handleAddToCart(hue) {
+    if (this.props.isLoggedIn) {
+      this.props.addToCart(hue)
+    } else {
+      this.guestAddToCart(hue.id, hue)
+    }
   }
 
   // add a function that will add a hue onto localstorage when the "add to cart" button is clicked (only if the user is not logged in)
@@ -82,13 +96,10 @@ class SingleHue extends React.Component {
                         <Button
                           variant="outline-secondary"
                           className="text-uppercase mr-2 px-4"
-                          onClick={() =>
-                            // isLoggedIn ? insert logged in function here, :
-                            {
-                              this.guestAddToCart(hue.id, hue)
-                              alert('added to cart! :)')
-                            }
-                          }
+                          onClick={() => {
+                            this.handleAddToCart(hue)
+                            alert('added to cart! :)')
+                          }}
                         >
                           Add to cart
                         </Button>
@@ -113,12 +124,15 @@ class SingleHue extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    hue: state.hue
+    hue: state.hue,
+    isLoggedIn: !!state.user.id
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  getHue: id => dispatch(getHue(id))
+  getHue: id => dispatch(getHue(id)),
+  addToCart: hue => dispatch(addToCart(hue)),
+  loadUser: () => dispatch(me())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleHue)

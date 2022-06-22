@@ -37,25 +37,39 @@ export const _setHueToOrder = hue => ({
 
 // thunk creators
 
-export const fetchOrders = userId => {
+// export const getCart = orderId => {
+//   return async dispatch => {
+//     try {
+//       const {data: order} = await Axios.get(`/api/orders/${orderId}`)
+//       dispatch(_getCart(order))
+//     } catch (err) {
+//       console.log(err)
+//     }
+//   }
+// }
+
+// export const fetchOrders = userId => {
+//   return async dispatch => {
+//     try {
+//       const {data: orders} = await Axios.get(`/api/orders/${userId}`)
+//       dispatch(_getAllOrders(orders))
+//     } catch (err) {
+//       console.log(err)
+//     }
+//   }
+// }
+
+export const getCart = () => {
   return async dispatch => {
-    try {
-      const {data: orders} = await Axios.get(`/api/orders/${userId}`)
-      dispatch(_getAllOrders(orders))
-    } catch (err) {
-      console.log(err)
-    }
+    const {data: order} = await Axios.get('/api/orders/cart')
+    dispatch(_getCart(order))
   }
 }
 
-export const getCart = orderId => {
+export const addToCart = hue => {
   return async dispatch => {
-    try {
-      const {data: order} = await Axios.get(`/api/orders/${orderId}`)
-      dispatch(_getCart(order))
-    } catch (err) {
-      console.log(err)
-    }
+    const {data: order} = await Axios.post(`/api/orders/${hue.id}`)
+    dispatch(_addToCart(order))
   }
 }
 
@@ -84,11 +98,10 @@ export default function orderReducer(state = [], action) {
       return action.orders
     case GET_CART:
       return action.cart
+    case ADD_TO_CART:
+      return action.cart
     case CHECKOUT_ORDER:
       return [...state, action.order]
-    case SET_HUE_TO_ORDER:
-      return [...state, action.hue]
-
     default:
       return state
   }
