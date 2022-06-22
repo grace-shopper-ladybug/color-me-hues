@@ -18,9 +18,12 @@ export class FilterDropDown extends React.Component {
 
   render() {
     return (
-      <div className="hue-list">
+      <div className="hue-list" id="hue-list">
         <select onChange={this.dropdownHandler}>
-          <option value="all">All Hues</option>
+          <option defaultValue disabled>
+            Filter By
+          </option>
+          <option value="all">All</option>
           <option value="warm">Warm</option>
           <option value="cool">Cool</option>
           <option value="neutral">Neutral</option>
