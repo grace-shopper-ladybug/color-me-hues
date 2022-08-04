@@ -11,7 +11,7 @@ _A fully functional e-commerce site!_
 
 ## Collaborators
 
-Cindy Yueh: [LinkedIn][https://www.linkedin.com/in/cindyyuehh/]
-Ji Young Kim: [LinkedIn][https://www.linkedin.com/in/ji-young-kim/]
-Kristin Lam: [LinkedIn][https://www.linkedin.com/in/kristin-lam/]
-Noelle Mittelstaedt: [LinkedIn][https://www.linkedin.com/in/noellemittelstaedt/]
+- Cindy Yueh: [LinkedIn][https://www.linkedin.com/in/cindyyuehh/]
+- Ji Young Kim: [LinkedIn][https://www.linkedin.com/in/ji-young-kim/]
+- Kristin Lam: [LinkedIn][https://www.linkedin.com/in/kristin-lam/]
+- Noelle Mittelstaedt: [LinkedIn][https://www.linkedin.com/in/noellemittelstaedt/]
