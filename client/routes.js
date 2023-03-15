@@ -10,7 +10,6 @@ import Admin from './components/Admin';
 import EditHue from './components/EditHue';
 import Order from './components/Order';
 import Checkout from './components/Checkout';
-import Orders from './components/Orders';
 import UserHome from './components/UserHome';
 
 class Routes extends Component {
@@ -40,7 +39,6 @@ class Routes extends Component {
               <Switch>
                 {/* available to admins */}
                 <Route path="/admin" component={Admin} />
-                <Route path="/orders" component={Orders} />
                 <Route path="/hues/:hueId/edit" component={EditHue} />
               </Switch>
             ) : (

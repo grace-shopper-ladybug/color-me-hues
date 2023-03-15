@@ -1,14 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import {logout} from '../store'
-import Container from 'react-bootstrap/Container'
-import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
-import NavDropdown from 'react-bootstrap/NavDropdown'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { logout } from '../store';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
-const NavigationBar = ({handleClick, isLoggedIn, isAdmin}) => (
+const NavigationBar = ({ handleClick, isLoggedIn, isAdmin }) => (
   <Navbar bg="light" expand="lg">
     <Container fluid>
       <Navbar.Brand href="/">
@@ -19,12 +19,11 @@ const NavigationBar = ({handleClick, isLoggedIn, isAdmin}) => (
           alt="House of Hues"
         />
       </Navbar.Brand>
-      {/* <Navbar.Brand>House of Hues</Navbar.Brand> */}
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
         <Nav
           className="me-auto my-2 my-lg-0"
-          style={{maxHeight: '100px'}}
+          style={{ maxHeight: '100px' }}
           navbarScroll
         >
           <Nav.Link href="/">All Products</Nav.Link>
@@ -36,7 +35,6 @@ const NavigationBar = ({handleClick, isLoggedIn, isAdmin}) => (
             {/* The navbar will show these links after you log in */}
             <NavDropdown title="Account" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/home">Account</NavDropdown.Item>
-              <NavDropdown.Item href="/orders">Orders</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action5" onClick={handleClick}>
                 Logout
@@ -53,38 +51,32 @@ const NavigationBar = ({handleClick, isLoggedIn, isAdmin}) => (
         <Nav.Link href="/cart">
           <i
             className="bi bi-cart"
-            style={{fontSize: '30px', color: 'black'}}
+            style={{ fontSize: '30px', color: 'black' }}
           />
         </Nav.Link>
       </Navbar.Collapse>
     </Container>
   </Navbar>
-)
+);
 
-/**
- * CONTAINER
- */
-const mapState = state => {
+const mapState = (state) => {
   return {
     isLoggedIn: !!state.user.id,
-    isAdmin: state.user.admin
-  }
-}
+    isAdmin: state.user.admin,
+  };
+};
 
-const mapDispatch = dispatch => {
+const mapDispatch = (dispatch) => {
   return {
     handleClick() {
-      dispatch(logout())
-    }
-  }
-}
+      dispatch(logout());
+    },
+  };
+};
 
-export default connect(mapState, mapDispatch)(NavigationBar)
+export default connect(mapState, mapDispatch)(NavigationBar);
 
-/**
- * PROP TYPES
- */
 NavigationBar.propTypes = {
   handleClick: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired
-}
+  isLoggedIn: PropTypes.bool.isRequired,
+};
