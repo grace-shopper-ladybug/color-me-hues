@@ -1,16 +1,16 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import {getHues, deleteHue} from '../store/allHues'
-import CreateHue from './CreateHue'
-import Table from 'react-bootstrap/Table'
-import Button from 'react-bootstrap/Button'
-import {getUsers} from '../store/allUsers'
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { getHues, deleteHue } from '../store/allHues';
+import CreateHue from './CreateHue';
+import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+import { getUsers } from '../store/allUsers';
 
 class Admin extends React.Component {
   componentDidMount() {
-    this.props.getHues()
-    this.props.getUsers()
+    this.props.getHues();
+    this.props.getUsers();
   }
 
   render() {
@@ -27,7 +27,7 @@ class Admin extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.users.map(user => {
+            {this.props.users.map((user) => {
               return (
                 <tr key={user.id}>
                   <td>{user.id}</td>
@@ -35,14 +35,11 @@ class Admin extends React.Component {
 
                   <td>{user.email}</td>
                 </tr>
-              )
+              );
             })}
           </tbody>
         </Table>
 
-        {/* <div>
-          <Button>Edit Hues</Button>
-        </div> */}
         <div>
           <CreateHue />
         </div>
@@ -60,7 +57,7 @@ class Admin extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.hues.map(hue => {
+            {this.props.hues.map((hue) => {
               return (
                 <tr key={hue.id}>
                   <td>{hue.id}</td>
@@ -69,10 +66,9 @@ class Admin extends React.Component {
                   <td>{hue.price / 100}</td>
                   <td>{hue.quantity}</td>
                   <td>
-                    {/* wrapping buttons in links is not semantically correct HTML — need to find a better way to handle linked buttons */}
-                    <Link to={`/hues/${hue.id}/edit`}>
-                      <Button type="button">Edit</Button>
-                    </Link>
+                    <Button as={Link} to={`/hues/${hue.id}/edit`} type="button">
+                      Edit
+                    </Button>
                   </td>
                   <td>
                     <Button
@@ -83,28 +79,28 @@ class Admin extends React.Component {
                     </Button>
                   </td>
                 </tr>
-              )
+              );
             })}
           </tbody>
         </Table>
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     hues: state.hues,
-    users: state.users
-  }
-}
+    users: state.users,
+  };
+};
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     getHues: () => dispatch(getHues()),
-    deleteHue: hue => dispatch(deleteHue(hue)),
-    getUsers: () => dispatch(getUsers())
-  }
-}
+    deleteHue: (hue) => dispatch(deleteHue(hue)),
+    getUsers: () => dispatch(getUsers()),
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Admin)
+export default connect(mapStateToProps, mapDispatchToProps)(Admin);
