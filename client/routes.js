@@ -24,7 +24,7 @@ class Routes extends Component {
       <Switch>
         {/* available to all visitors */}
         <Route exact path="/" component={AllHues} />
-        <Route path="/products" component={AllHues} />
+        <Route path="/hues/:hueId" component={SingleHue} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/cart" component={Order} />
@@ -40,7 +40,6 @@ class Routes extends Component {
                 {/* available to admins */}
                 <Route path="/admin" component={Admin} />
                 <Route path="/orders" component={Orders} />
-                <Route path="/hues/:hueId" component={SingleHue} />
                 <Route path="/hues/:hueId/edit" component={EditHue} />
               </Switch>
             ) : (
