@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Cart } from 'react-bootstrap-icons';
 
 const NavigationBar = ({ handleClick, isLoggedIn, isAdmin }) => (
   <Navbar bg="light" expand="lg">
@@ -34,7 +35,7 @@ const NavigationBar = ({ handleClick, isLoggedIn, isAdmin }) => (
         {isLoggedIn ? (
           <NavDropdown title="Account" id="navbarScrollingDropdown">
             {/* shows after you log in */}
-            <NavDropdown.Item as={Link} to="/home">
+            <NavDropdown.Item as={Link} to="/account">
               Account
             </NavDropdown.Item>
             {isAdmin && (
@@ -57,7 +58,7 @@ const NavigationBar = ({ handleClick, isLoggedIn, isAdmin }) => (
           </Nav>
         )}
         <Nav.Link as={Link} to="/cart">
-          Cart
+          <Cart />
         </Nav.Link>
       </Navbar.Collapse>
     </Container>
