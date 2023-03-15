@@ -1,6 +1,6 @@
-import React from 'react'
-import {NavigationBar} from './components'
-import Routes from './routes'
+import React from 'react';
+import NavigationBar from './components/NavigationBar';
+import Routes from './routes';
 
 const App = () => {
   return (
@@ -8,7 +8,7 @@ const App = () => {
       <NavigationBar />
       <Routes />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

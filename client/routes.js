@@ -3,18 +3,14 @@ import { connect } from 'react-redux';
 import { withRouter, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { me } from './store';
-import {
-  Login,
-  Signup,
-  UserHome,
-  AllHues,
-  SingleHue,
-  Admin,
-  EditHue,
-  Order,
-  Checkout,
-  Orders,
-} from './components';
+import { Login, Signup } from './components/auth-form';
+import AllHues from './components/AllHues';
+import SingleHue from './components/SingleHue';
+import Admin from './components/Admin';
+import EditHue from './components/EditHue';
+import Order from './components/Order';
+import Checkout from './components/Checkout';
+import Orders from './components/Orders';
 
 class Routes extends Component {
   componentDidMount() {
