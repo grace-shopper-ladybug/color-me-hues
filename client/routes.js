@@ -1,54 +1,51 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {withRouter, Route, Switch} from 'react-router-dom'
-import PropTypes from 'prop-types'
-import {me} from './store'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter, Route, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { me } from './store';
 import {
   Login,
   Signup,
   UserHome,
-  Storefront,
+  AllHues,
   SingleHue,
   Admin,
   EditHue,
   Order,
   Checkout,
-  Orders
-} from './components'
+  Orders,
+} from './components';
 
-/**
- * COMPONENT
- */
 class Routes extends Component {
   componentDidMount() {
-    this.props.loadInitialData()
+    this.props.loadInitialData();
   }
 
   render() {
-    const {isLoggedIn, isAdmin} = this.props
+    const { isLoggedIn, isAdmin } = this.props;
 
     return (
       <Switch>
-        {/* Routes placed here are available to all visitors */}
-        <Route exact path="/" component={Storefront} />
-        <Route exact path="/products" component={Storefront} />
-        <Route exact path="/hues/:hueId" component={SingleHue} />
-        <Route path="/hues/:hueId/edit" component={EditHue} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/cart" component={Order} />
-        <Route exact path="/checkout" component={Checkout} />
+        {/* available to all visitors */}
+        <Route exact path="/" component={AllHues} />
+        <Route path="/products" component={AllHues} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/cart" component={Order} />
+        <Route path="/checkout" component={Checkout} />
 
         {isLoggedIn && (
           <Switch>
-            {/* Routes placed here are only available after logging in */}
-            <Route exact path="/home" component={UserHome} />
+            {/* available to users */}
+            <Route path="/home" component={UserHome} />
 
             {isAdmin ? (
               <Switch>
-                {/* Routes placed here are only available for admins */}
-                <Route exact path="/admin" component={Admin} />
-                <Route exact path="/orders" component={Orders} />
+                {/* available to admins */}
+                <Route path="/admin" component={Admin} />
+                <Route path="/orders" component={Orders} />
+                <Route path="/hues/:hueId" component={SingleHue} />
+                <Route path="/hues/:hueId/edit" component={EditHue} />
               </Switch>
             ) : (
               <Switch>
@@ -62,41 +59,35 @@ class Routes extends Component {
           </Switch>
         )}
 
-        {/* Displays our Login component as a fallback */}
+        {/* displays Login component as fallback */}
         <Route component={Login} />
       </Switch>
-    )
+    );
   }
 }
 
-/**
- * CONTAINER
- */
-const mapState = state => {
+const mapState = (state) => {
   return {
     // Being 'logged in' for our purposes will be defined has having a state.user that has a truthy id.
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
     isLoggedIn: !!state.user.id,
-    isAdmin: state.user.admin
-  }
-}
+    isAdmin: state.user.admin,
+  };
+};
 
-const mapDispatch = dispatch => {
+const mapDispatch = (dispatch) => {
   return {
     loadInitialData() {
-      dispatch(me())
-    }
-  }
-}
+      dispatch(me());
+    },
+  };
+};
 
 // The `withRouter` wrapper makes sure that updates are not blocked
 // when the url changes
-export default withRouter(connect(mapState, mapDispatch)(Routes))
+export default withRouter(connect(mapState, mapDispatch)(Routes));
 
-/**
- * PROP TYPES
- */
 Routes.propTypes = {
   loadInitialData: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired
-}
+  isLoggedIn: PropTypes.bool.isRequired,
+};
