@@ -11,6 +11,7 @@ import EditHue from './components/EditHue';
 import Order from './components/Order';
 import Checkout from './components/Checkout';
 import Orders from './components/Orders';
+import UserHome from './components/UserHome';
 
 class Routes extends Component {
   componentDidMount() {
