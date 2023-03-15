@@ -4,6 +4,7 @@ import { withRouter, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { me } from './store';
 import { Login, Signup } from './components/auth-form';
+import HomePage from './pages/HomePage';
 import AllHues from './components/AllHues';
 import SingleHue from './components/SingleHue';
 import Admin from './components/Admin';
@@ -23,7 +24,8 @@ class Routes extends Component {
     return (
       <Switch>
         {/* available to all visitors */}
-        <Route exact path="/" component={AllHues} />
+        <Route exact path="/" component={HomePage} />
+        <Route path="/shop" component={AllHues} />
         <Route path="/hues/:hueId" component={SingleHue} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />

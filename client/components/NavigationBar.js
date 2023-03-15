@@ -26,8 +26,8 @@ const NavigationBar = ({ handleClick, isLoggedIn, isAdmin }) => (
           style={{ maxHeight: '100px' }}
           navbarScroll
         >
-          <Nav.Link as={Link} to="/">
-            All Products
+          <Nav.Link as={Link} to="/shop">
+            Shop All
           </Nav.Link>
         </Nav>
 
