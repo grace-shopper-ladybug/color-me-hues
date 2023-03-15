@@ -26,7 +26,7 @@ class Routes extends Component {
         {/* available to all visitors */}
         <Route exact path="/" component={HomePage} />
         <Route path="/shop" component={AllHues} />
-        <Route path="/hues/:hueId" component={SingleHue} />
+        <Route exact path="/hues/:hueId" component={SingleHue} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/cart" component={Order} />
@@ -35,7 +35,7 @@ class Routes extends Component {
         {isLoggedIn && (
           <Switch>
             {/* available to users */}
-            <Route path="/home" component={UserHome} />
+            <Route path="/account" component={UserHome} />
 
             {isAdmin ? (
               <Switch>
