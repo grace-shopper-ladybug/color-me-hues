@@ -11,12 +11,12 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 const NavigationBar = ({ handleClick, isLoggedIn, isAdmin }) => (
   <Navbar bg="light" expand="lg">
     <Container fluid>
-      <Navbar.Brand href="/">
+      <Navbar.Brand as={Link} to="/">
         <img
           src="/images/icon.png"
           width="50"
           height="50"
-          alt="House of Hues"
+          alt="Color Me Hues"
         />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
@@ -26,33 +26,38 @@ const NavigationBar = ({ handleClick, isLoggedIn, isAdmin }) => (
           style={{ maxHeight: '100px' }}
           navbarScroll
         >
-          <Nav.Link href="/">All Products</Nav.Link>
-
-          {isAdmin ? <Nav.Link href="/admin">Admin</Nav.Link> : null}
+          <Nav.Link as={Link} to="/">
+            All Products
+          </Nav.Link>
         </Nav>
+
         {isLoggedIn ? (
-          <div>
-            {/* The navbar will show these links after you log in */}
-            <NavDropdown title="Account" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="/home">Account</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5" onClick={handleClick}>
-                Logout
+          <NavDropdown title="Account" id="navbarScrollingDropdown">
+            {/* shows after you log in */}
+            <NavDropdown.Item as={Link} to="/home">
+              Account
+            </NavDropdown.Item>
+            {isAdmin && (
+              <NavDropdown.Item as={Link} to="/admin">
+                Admin
               </NavDropdown.Item>
-            </NavDropdown>
-          </div>
+            )}
+            <NavDropdown.Divider />
+            <NavDropdown.Item onClick={handleClick}>Logout</NavDropdown.Item>
+          </NavDropdown>
         ) : (
-          <div className="nav-bar-links">
-            {/* The navbar will show these links before you log in */}
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
-          </div>
+          <Nav>
+            {/* shows before you log in */}
+            <Nav.Link as={Link} to="/login">
+              Login
+            </Nav.Link>
+            <Nav.Link as={Link} to="/signup">
+              Sign Up
+            </Nav.Link>
+          </Nav>
         )}
-        <Nav.Link href="/cart">
-          <i
-            className="bi bi-cart"
-            style={{ fontSize: '30px', color: 'black' }}
-          />
+        <Nav.Link as={Link} to="/cart">
+          Cart
         </Nav.Link>
       </Navbar.Collapse>
     </Container>

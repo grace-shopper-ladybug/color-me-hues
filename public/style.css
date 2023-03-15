@@ -30,10 +30,6 @@ form div {
   background-image: url('../public/images/icon.png');
 }
 
-.nav-bar.links {
-  color: black;
-}
-
 /* AllHues hover description styling */
 .hover-3::after {
   content: '';
